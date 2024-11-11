@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "token_style"
+  site-url: "https://silvaac.github.io/token_style"
+  description: "Token data pull from the web"
+  repo-branch: main
+  repo-url: "https://github.com/silvaac/token_style"
