@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+settings.ini
+setup.py
+token_style/__init__.py
+token_style/_modidx.py
+token_style/coinbase.py
+token_style/core.py
+token_style.egg-info/PKG-INFO
+token_style.egg-info/SOURCES.txt
+token_style.egg-info/dependency_links.txt
+token_style.egg-info/entry_points.txt
+token_style.egg-info/not-zip-safe
+token_style.egg-info/requires.txt
+token_style.egg-info/top_level.txt

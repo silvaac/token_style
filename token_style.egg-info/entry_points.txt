@@ -1,0 +1,2 @@
+[nbdev]
+token_style = token_style._modidx:d
