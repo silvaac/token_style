@@ -13,17 +13,38 @@ import datetime as dt
 
 
 # %% ../nbs/coinbase.ipynb 4
-def retrieve_coinbase_price(pair="BTC-USD",time_interval=3600, 
-                            end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'), 
-                            start_date=(datetime.now()-pd.Timedelta(days=2)).strftime('%Y-%m-%dT%H:%M:%SZ')):
-    # This function retrieves the price data from Coinbase for a given pair and time interval.
-    # There is a limit of 300 requests per hour.
-    # There is a maximum of 200 candles per request. If you need more, you need to paginate.
-    # If you try to retrive more per hour or more candles per request, you will get a error, and the function will return None.
-    # General URL is: https://api.exchange.coinbase.com/products/{pair}/candles
-    # Important: time_interval is in seconds
-    # For documentation see: https://docs.cdp.coinbase.com/exchange/reference/exchangerestapi_getproductcandles
-    
+def retrieve_coinbase_price(pair="BTC-USD", time_interval=3600,
+                          end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
+                          start_date=(datetime.now()-pd.Timedelta(days=2)).strftime('%Y-%m-%dT%H:%M:%SZ')):
+    """
+    Retrieves historical price data from Coinbase for a given trading pair and time interval.
+
+    Makes a GET request to the Coinbase candles endpoint to fetch OHLCV (Open, High, Low, Close, Volume) 
+    data for the specified trading pair and time period.
+
+    Args:
+        pair (str, optional): Trading pair symbol (e.g. "BTC-USD"). Defaults to "BTC-USD".
+        time_interval (int, optional): Candle interval in seconds. Defaults to 3600 (1 hour).
+        end_date (str, optional): End datetime in ISO 8601 format. Defaults to current UTC time.
+        start_date (str, optional): Start datetime in ISO 8601 format. Defaults to 2 days before end_date.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing the OHLCV data with columns:
+            - datetime: Timestamp for the candle (UTC)
+            - low: Lowest traded price in the interval
+            - high: Highest traded price in the interval  
+            - open: Opening price of the interval
+            - close: Closing price of the interval
+            - volume: Trading volume in the interval
+            - pair: Trading pair symbol
+        Returns None if the API request fails or returns no data.
+
+    Notes:
+        - Limited to 300 requests per hour by the Coinbase API
+        - Maximum of 200 candles can be retrieved per request
+        - Attempting to exceed these limits will result in an error and return None
+        - All datetime values are in UTC timezone
+    """
     url = f"https://api.exchange.coinbase.com/products/{pair}/candles?granularity={time_interval}&start={start_date}&end={end_date}"
     response = requests.get(url)
     if response.status_code != 200:
@@ -45,6 +66,23 @@ def retrieve_coinbase_price(pair="BTC-USD",time_interval=3600,
 
 # %% ../nbs/coinbase.ipynb 5
 def coinbase_tokens():
+    """
+    Retrieves all available trading pairs from the Coinbase Exchange API.
+
+    Makes a GET request to the Coinbase products endpoint to fetch information about
+    all trading pairs available on the exchange.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing information about all trading pairs with columns:
+            - id: Trading pair ID (e.g. 'BTC-USD')
+            - base_currency: The cryptocurrency being traded (e.g. 'BTC') 
+            - quote_currency: The currency used for pricing (e.g. 'USD')
+            - quote_increment: Minimum price increment
+            - base_increment: Minimum quantity increment
+            - display_name: Human readable name of the trading pair
+            - status: Trading status of the pair
+            And other metadata columns provided by the Coinbase API
+    """
     currencies_url = "https://api.exchange.coinbase.com/products"
     currencies_response = requests.get(currencies_url)
     currencies_data = currencies_response.json()
@@ -53,16 +91,54 @@ def coinbase_tokens():
 
 # %% ../nbs/coinbase.ipynb 6
 def coinbase_usd_tokens():
+    """
+    Retrieves all trading pairs from Coinbase that have USD as the quote currency.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing information about USD trading pairs with columns:
+            - id: Trading pair ID (e.g. 'BTC-USD')
+            - base_currency: The cryptocurrency being traded (e.g. 'BTC')
+            - quote_currency: Always 'USD' for this filtered dataset
+            - quote_increment: Minimum price increment
+            - base_increment: Minimum quantity increment
+            - display_name: Human readable name of the trading pair
+            - status: Trading status of the pair
+            And other metadata columns provided by the Coinbase API
+    """
     tokens = coinbase_tokens()
     return tokens[tokens['quote_currency']=='USD']
 
 
 # %% ../nbs/coinbase.ipynb 7
-# Download long time series from Coinbase accounting for maximum number of dates per request
-def coinbase_price_history(pair='BTC-USD',start_date='2024-01-01',end_date='2024-05-01',time_interval=3600,max_pull=250,verbose=False):
-    # This function downloads the price history for a given pair from Coinbase.
-    # It accounts for the maximum number of dates that can be downloaded at once. This can change in the future.
+def coinbase_price_history(pair='BTC-USD', start_date='2024-01-01', end_date='2024-05-01', time_interval=3600, max_pull=250, verbose=False):
+    """
+    Downloads historical price data for a cryptocurrency pair from Coinbase, handling rate limits.
 
+    Args:
+        pair (str): Trading pair symbol (e.g. 'BTC-USD'). Defaults to 'BTC-USD'.
+        start_date (str): Start date in 'YYYY-MM-DD' format. Defaults to '2024-01-01'.
+        end_date (str): End date in 'YYYY-MM-DD' format. Defaults to '2024-05-01'.
+        time_interval (int): Time interval between candles in seconds. Defaults to 3600 (1 hour).
+        max_pull (int): Maximum number of candles per API request. Defaults to 250.
+        verbose (bool): If True, prints progress messages. Defaults to False.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing price history with columns:
+            - datetime: Timestamp of the candle
+            - low: Lowest price during the interval
+            - high: Highest price during the interval  
+            - open: Opening price of the interval
+            - close: Closing price of the interval
+            - volume: Trading volume during the interval
+            - pair: Trading pair symbol
+
+    Raises:
+        ValueError: If end_date is earlier than start_date
+
+    The function handles Coinbase's API limitations by automatically splitting requests
+    into smaller chunks if the date range would exceed the maximum allowed candles
+    per request.
+    """
     # convert the dates to datetime
     start_date = pd.to_datetime(start_date)
     end_date = pd.to_datetime(end_date)
@@ -92,7 +168,19 @@ def coinbase_price_history(pair='BTC-USD',start_date='2024-01-01',end_date='2024
     return df
 
 # %% ../nbs/coinbase.ipynb 8
-def save_file(df,folder_path,file_name,type="csv"):
+def save_file(df, folder_path, file_name, type="csv"):
+    """
+    Save a pandas DataFrame to a file in either CSV or Parquet format.
+
+    Args:
+        df (pandas.DataFrame): The DataFrame to save
+        folder_path (str): Directory path where the file will be saved
+        file_name (str): Name of the file without extension
+        type (str, optional): File format - either "csv" or "parquet". Defaults to "csv"
+
+    The function saves the DataFrame to the specified path, handling the file extension automatically.
+    For CSV files, the index is not saved. For Parquet files, default Parquet settings are used.
+    """
     if type == "csv":
         df.to_csv(f"{folder_path}/{file_name}.csv",index=False)
     elif type == "parquet":
@@ -103,13 +191,25 @@ def save_file(df,folder_path,file_name,type="csv"):
 # %% ../nbs/coinbase.ipynb 9
 def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_tokens()['id'].tolist(),type="csv",
                      interval=3600,all_tokens=True):
-    # Documentation:
-    # This function downloads the price history for a given list of tokens from Coinbase and saves them in a folder.
-    # If the folder does not exist, it creates it.
-    # If the folder exists, it reads the existing files and appends the new data to them.
-    # The files are saved in the folder with the name of the token and the extension of the type.
-    # The files are saved in the format of the type.
+    """
+    Downloads and maintains historical price data for Coinbase tokens, saving to files.
     
+    Args:
+        folder_path (str): Path where token data files will be stored. Defaults to "../data/coinbase"
+        token_list (list): List of token IDs to process. Defaults to all USD trading pairs from coinbase_usd_tokens()
+        type (str): File format to save data - either "csv" or "parquet". Defaults to "csv"
+        interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour)
+        all_tokens (bool): If True, includes any additional tokens found in the folder path. Defaults to True
+    
+    The function:
+    - Creates the folder_path if it doesn't exist
+    - Date/Time is UTC
+    - For each token, checks if data file exists:
+        - If exists: Loads file and appends any new data since last recorded date
+        - If not exists: Downloads full history starting from 2016
+    - Saves data in specified format, handling duplicates and sorting by date
+    - For hourly data (interval=3600), aligns to hour boundaries
+    """
     # create the folder if it does not exist, and if it exists, read the file names
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -160,6 +260,18 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
 
 # %% ../nbs/coinbase.ipynb 10
 def read_all_files(folder_path="../data/coinbase",type="csv"):
+    """Read and combine all files from a folder into a single DataFrame.
+    
+    Args:
+        folder_path (str): Path to the folder containing the files. Defaults to "../data/coinbase".
+        type (str): File type to read - either "csv" or "parquet". Defaults to "csv".
+        
+    Returns:
+        pandas.DataFrame: Combined DataFrame containing data from all files in the folder.
+        
+    Raises:
+        ValueError: If file type is not supported (must be "csv" or "parquet").
+    """
     file_names = os.listdir(folder_path)
     df_list = []
     for file_name in file_names:
