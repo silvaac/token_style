@@ -2,7 +2,7 @@
 
 # %% auto 0
 __all__ = ['retrieve_coinbase_price', 'coinbase_tokens', 'coinbase_usd_tokens', 'coinbase_price_history', 'save_file',
-           'coinbase_to_file', 'read_all_files']
+           'coinbase_to_file', 'coinbase_data_update', 'read_all_files', 'coinbase_price_last_day', 'binance_format']
 
 # %% ../nbs/coinbase.ipynb 3
 from datetime import datetime
@@ -190,7 +190,7 @@ def save_file(df, folder_path, file_name, type="csv"):
 
 # %% ../nbs/coinbase.ipynb 9
 def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_tokens()['id'].tolist(),type="csv",
-                     interval=3600,all_tokens=True):
+                     interval=3600,all_tokens=True,refresh_24h=False):
     """
     Downloads and maintains historical price data for Coinbase tokens, saving to files.
     
@@ -200,6 +200,7 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
         type (str): File format to save data - either "csv" or "parquet". Defaults to "csv"
         interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour)
         all_tokens (bool): If True, includes any additional tokens found in the folder path. Defaults to True
+        refresh_24h (bool): If True, replaces at least 24 hours. Defaults to False
     
     The function:
     - Creates the folder_path if it doesn't exist
@@ -232,13 +233,18 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
             else:
                 raise ValueError(f"Type {type} not supported")
             # read last date in the file
-            last_date = pd.to_datetime(df['datetime'].iloc[-1])
+            last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
             if interval == 3600:
                 today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
             else:
                 today = datetime.now(tz=dt.UTC)
             #print(last_date.tz_localize(dt.UTC),today)
-            if last_date.tz_localize(dt.UTC) < today:
+            first_date = today - dt.timedelta(hours=24)
+            if first_date < last_date and refresh_24h:
+                t_date = pd.to_datetime(df['datetime'],utc=True)
+                df = df[t_date < first_date]
+                last_date = first_date
+            if last_date < today:
                 df_new = coinbase_price_history(pair=token,
                                             start_date=last_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                                             end_date=today.strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -255,10 +261,82 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
                                         end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
                                         time_interval=interval)
             save_file(df,folder_path,token,type)
-    
-
 
 # %% ../nbs/coinbase.ipynb 10
+def coinbase_data_update(folder_path="../data/coinbase",token_list=['AAVE-USD'],type="parquet",
+                     interval=3600,all_tokens=False,refresh_24h=True):
+    """
+    Downloads new historical price data for Coinbase tokens... no saving
+    
+    Args:
+        folder_path (str): Path where token data files will be stored. Defaults to "../data/coinbase"
+        token_list (list): List of token IDs to process. Defaults to all USD trading pairs from coinbase_usd_tokens()
+        type (str): File format to save data - either "csv" or "parquet". Defaults to "csv"
+        interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour)
+        all_tokens (bool): If True, includes any additional tokens found in the folder path. Defaults to True
+        refresh_24h (bool): If True, replaces at least 24 hours. Defaults to False
+    Returns:
+        df (pandas.DataFrame): DataFrame of historical price data
+    The function:
+    - Creates the folder_path if it doesn't exist
+    - Date/Time is UTC
+    - For each token, checks if data file exists:
+        - If exists: Loads file and appends any new data since last recorded date
+        - If not exists: Downloads full history starting from 2016
+    - Saves data in specified format, handling duplicates and sorting by date
+    - For hourly data (interval=3600), aligns to hour boundaries
+    """
+    # create the folder if it does not exist, and if it exists, read the file names
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    else:
+        if all_tokens:
+            file_names = os.listdir(folder_path)
+            # remove the file extension
+            tokens_in_folder = [os.path.splitext(file_name)[0] for file_name in file_names]
+            # join tokens in folder with token_list and remove the duplicates
+            token_list = list(set(token_list + tokens_in_folder))
+    # loop over the token list and open the file if it exists and append the new data
+    for token in token_list:
+        print(f"Processing {token}")
+        file_name = f"{folder_path}/{token}.{type}"
+        if os.path.exists(file_name):
+            if type == "csv":
+                df = pd.read_csv(file_name)
+            elif type == "parquet":
+                df = pd.read_parquet(file_name)
+            else:
+                raise ValueError(f"Type {type} not supported")
+            # read last date in the file
+            last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
+            if interval == 3600:
+                today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
+            else:
+                today = datetime.now(tz=dt.UTC)
+            #print(last_date.tz_localize(dt.UTC),today)
+            first_date = today - dt.timedelta(hours=24)
+            if first_date < last_date and refresh_24h:
+                t_date = pd.to_datetime(df['datetime'],utc=True)
+                df = df[t_date < first_date]
+                last_date = first_date
+            if last_date < today:
+                df_new = coinbase_price_history(pair=token,
+                                            start_date=last_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                            end_date=today.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                            time_interval=interval)
+                df = pd.concat([df,df_new])
+                # drop duplicates and sort by date
+                df = df.drop_duplicates(subset='datetime').sort_values(by='datetime').reset_index(drop=True)
+            else:
+                print(f"File {token} is up to date")
+        else:
+            df = coinbase_price_history(pair=token,
+                                        start_date='2016-01-01T00:00:00Z',
+                                        end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                        time_interval=interval)
+    return df
+
+# %% ../nbs/coinbase.ipynb 11
 def read_all_files(folder_path="../data/coinbase",type="csv"):
     """Read and combine all files from a folder into a single DataFrame.
     
@@ -285,3 +363,42 @@ def read_all_files(folder_path="../data/coinbase",type="csv"):
     return pd.concat(df_list)
 
 
+
+# %% ../nbs/coinbase.ipynb 12
+def coinbase_price_last_day(pair='BTC-USD'):
+    """
+    Fetch the last day's price for a given Coinbase token.
+    This fuction is a helper function around coinbase_price_history().
+    
+    Args:
+        pair (str): Coinbase token pair, e.g., "BTC-USD". Defaults to "BTC-USD".
+    
+    Returns:
+        pandas dataframe: Last 24 hours price data.
+    """
+    # fetch the data
+    data = coinbase_price_history(pair=pair, 
+                        start_date=(datetime.now(tz=dt.UTC) - dt.timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%SZ'), 
+                        end_date=datetime.now(tz=dt.UTC).strftime('%Y-%m-%dT%H:%M:%SZ'))
+    # return the last price
+    return data
+
+# %% ../nbs/coinbase.ipynb 13
+def binance_format(df):
+    """
+    Convert coinbase dataframe to binance format.
+    
+    Args:
+        df (pandas dataframe): Coinbase dataframe.
+    
+    Returns:
+        pandas dataframe: Binance format dataframe.
+    """
+    df['date']  = pd.to_datetime(df['datetime'],utc=True)
+    df['pair']  = df['pair'].apply(lambda x: str.lower(str.split(x,'-')[0]))
+    df['Open'] = df['open']
+    df['High'] = df['high']
+    df['Low']  = df['low']
+    df['Close'] = df['close']
+    df['Volume'] = df['volume']
+    return df[['date','Open','High','Low','Close','Volume','pair']]

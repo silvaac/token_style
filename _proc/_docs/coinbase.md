@@ -22,8 +22,8 @@ target="_blank" style="float:right; font-size:smaller">source</a>
 ### retrieve_coinbase_price
 
 >      retrieve_coinbase_price (pair='BTC-USD', time_interval=3600,
->                               end_date='2024-11-13T09:32:24Z',
->                               start_date='2024-11-11T09:32:24Z')
+>                               end_date='2025-01-07T14:19:15Z',
+>                               start_date='2025-01-05T14:19:15Z')
 
 \*Retrieves historical price data from Coinbase for a given trading pair
 and time interval.
@@ -162,76 +162,79 @@ target="_blank" style="float:right; font-size:smaller">source</a>
 
 ### coinbase_to_file
 
->      coinbase_to_file (folder_path='../data/coinbase', token_list=['PLA-USD',
->                        'SHIB-USD', 'ALEPH-USD', 'GODS-USD', 'SAFE-USD',
->                        'OCEAN-USD', 'SNX-USD', 'COW-USD', 'GAL-USD', 'MIR-
->                        USD', 'ZRO-USD', 'LRC-USD', 'TRB-USD', 'ACH-USD', 'OP-
->                        USD', 'TVK-USD', 'ATA-USD', 'CGLD-USD', 'CRO-USD',
->                        'VTHO-USD', 'POLS-USD', 'HNT-USD', 'SWELL-USD', 'DNT-
->                        USD', 'STX-USD', 'AERO-USD', 'SUPER-USD', 'MPL-USD',
->                        'RENDER-USD', 'GFI-USD', 'AIOZ-USD', 'XRP-USD', 'AERGO-
->                        USD', 'FLR-USD', 'BUSD-USD', 'APE-USD', 'AMP-USD',
->                        'RBN-USD', 'CVX-USD', 'DEGEN-USD', 'QNT-USD', 'MTL-
->                        USD', 'DAR-USD', 'RONIN-USD', 'QUICK-USD', 'AXS-USD',
->                        'SYN-USD', 'AXL-USD', 'XCN-USD', 'ICP-USD', 'UPI-USD',
->                        'ZETACHAIN-USD', 'FET-USD', 'KRL-USD', 'NU-USD',
->                        'DRIFT-USD', 'BNT-USD', 'MINA-USD', 'SEI-USD', 'VGX-
->                        USD', 'GLM-USD', 'GTC-USD', 'WCFG-USD', 'BTRST-USD',
->                        'FORT-USD', 'SUI-USD', 'RLY-USD', 'BICO-USD', 'REQ-
->                        USD', 'MASK-USD', 'QI-USD', 'FIL-USD', 'CHZ-USD',
->                        'WLUNA-USD', 'OMNI-USD', 'BONK-USD', 'AVAX-USD', 'ANT-
->                        USD', 'DAI-USD', 'GHST-USD', 'NCT-USD', 'ETC-USD',
->                        'MUSE-USD', 'XLM-USD', 'NEAR-USD', 'VOXEL-USD',
->                        'AURORA-USD', 'LDO-USD', 'BLUR-USD', 'WAXL-USD', 'RAD-
->                        USD', 'JASMY-USD', 'YFI-USD', 'PLU-USD', 'LTC-USD',
->                        'COMP-USD', 'AUDIO-USD', 'ATOM-USD', 'RAI-USD', 'RPL-
->                        USD', 'TRAC-USD', 'FX-USD', 'IDEX-USD', 'KSM-USD',
->                        'CELR-USD', 'AKT-USD', 'API3-USD', 'IMX-USD', 'MONA-
->                        USD', 'FIDA-USD', 'HIGH-USD', 'CLV-USD', 'MUSD-USD',
->                        'RNDR-USD', 'USDT-USD', 'DDX-USD', 'OSMO-USD', 'EIGEN-
->                        USD', 'CRV-USD', 'AUCTION-USD', 'G-USD', 'GUSD-USD',
->                        'YFII-USD', 'CORECHAIN-USD', 'ARKM-USD', 'POL-USD',
->                        'RARI-USD', 'XYO-USD', 'NKN-USD', 'CTX-USD', 'INV-USD',
->                        'LPT-USD', 'ZK-USD', 'GALA-USD', 'ABT-USD', 'EURC-USD',
->                        'RGT-USD', 'SOL-USD', 'T-USD', 'CVC-USD', 'GRT-USD',
->                        'PRQ-USD', 'VELO-USD', 'TRU-USD', 'MSOL-USD', 'CTSI-
->                        USD', 'MATH-USD', 'ENJ-USD', 'MANA-USD', 'CRPT-USD',
->                        'LRDS-USD', 'WELL-USD', 'WBTC-USD', 'SHPING-USD',
->                        'MULTI-USD', 'DYP-USD', 'IOTX-USD', 'DOT-USD', 'ANKR-
->                        USD', 'STRK-USD', 'ELA-USD', 'C98-USD', 'PAX-USD',
->                        'EOS-USD', 'AAVE-USD', 'MCO2-USD', 'STORJ-USD', 'PYUSD-
->                        USD', 'UNFI-USD', 'PRO-USD', 'DASH-USD', 'DIMO-USD',
->                        'SWFTC-USD', 'SUKU-USD', 'STG-USD', 'ACX-USD', 'NEST-
->                        USD', 'REP-USD', 'KAVA-USD', 'MNDE-USD', 'ALICE-USD',
->                        'SAND-USD', '00-USD', 'QSP-USD', 'ORCA-USD', 'ERN-USD',
->                        'DEXT-USD', 'ALCX-USD', 'SHDW-USD', 'PIRATE-USD', 'REN-
->                        USD', 'UMA-USD', 'AST-USD', 'RARE-USD', 'OOKI-USD',
->                        'NEON-USD', 'ALGO-USD', 'DREP-USD', 'BTC-USD', 'BOND-
->                        USD', 'FIS-USD', 'AGLD-USD', 'BLAST-USD', 'JUP-USD',
->                        'NMR-USD', 'CBETH-USD', 'BAL-USD', 'FLOW-USD', 'GNO-
->                        USD', '1INCH-USD', 'WAMPL-USD', 'BIGTIME-USD', 'JTO-
->                        USD', 'AVT-USD', 'TRIBE-USD', 'ROSE-USD', 'SNT-USD',
->                        'TIA-USD', 'PUNDIX-USD', 'ASM-USD', 'KARRAT-USD', 'XTZ-
->                        USD', 'BLZ-USD', 'SKL-USD', 'FARM-USD', 'LIT-USD',
->                        'ONDO-USD', 'PERP-USD', 'UST-USD', 'POND-USD', 'MOBILE-
->                        USD', 'BCH-USD', 'A8-USD', 'MLN-USD', 'DOGE-USD',
->                        'TNSR-USD', 'ETH-USD', 'BOBA-USD', 'TIME-USD', 'BIT-
->                        USD', 'MKR-USD', 'KNC-USD', 'ALEO-USD', 'VARA-USD',
->                        'GMT-USD', 'MEDIA-USD', 'ORN-USD', 'LOKA-USD', 'MAGIC-
->                        USD', 'HONEY-USD', 'POWR-USD', 'EGLD-USD', 'ZEC-USD',
->                        'COVAL-USD', 'UNI-USD', 'ZEN-USD', 'INDEX-USD', 'LOOM-
->                        USD', 'HBAR-USD', 'ARPA-USD', 'POLY-USD', 'ACS-USD',
->                        'MATIC-USD', 'MDT-USD', 'SPA-USD', 'OMG-USD', 'BADGER-
->                        USD', 'LQTY-USD', 'FOX-USD', 'PRIME-USD', 'SYLO-USD',
->                        'HFT-USD', 'HOPR-USD', 'ADA-USD', 'METIS-USD', 'GST-
->                        USD', 'FORTH-USD', 'PYR-USD', 'ARB-USD', 'DIA-USD',
->                        'SPELL-USD', 'LSETH-USD', 'OXT-USD', 'DESO-USD', 'RLC-
->                        USD', 'INJ-USD', 'COTI-USD', 'ENS-USD', 'ILV-USD',
->                        'APT-USD', 'OGN-USD', 'SUSHI-USD', 'LCX-USD', 'SEAM-
->                        USD', 'ZETA-USD', 'IO-USD', 'BAT-USD', 'KEEP-USD',
->                        'LINK-USD', 'TONE-USD', 'BAND-USD', 'MXC-USD', 'VET-
->                        USD', 'GYEN-USD', 'SD-USD', 'PNG-USD', 'ZRX-USD'],
->                        type='csv', interval=3600, all_tokens=True)
+>      coinbase_to_file (folder_path='../data/coinbase', token_list=['REQ-USD',
+>                        'GUSD-USD', 'MOVE-USD', 'TRIBE-USD', 'YFII-USD', 'MLN-
+>                        USD', 'MUSE-USD', 'GODS-USD', 'GTC-USD', 'YFI-USD',
+>                        'PEPE-USD', 'MUSD-USD', 'ALICE-USD', 'AAVE-USD', 'PRQ-
+>                        USD', 'ARB-USD', 'ACS-USD', 'XLM-USD', 'NEAR-USD',
+>                        'MOBILE-USD', 'VET-USD', 'AURORA-USD', 'TVK-USD',
+>                        'OOKI-USD', 'RLY-USD', 'GFI-USD', 'AXL-USD', 'WELL-
+>                        USD', 'FLOW-USD', 'MONA-USD', 'FOX-USD', 'PRO-USD',
+>                        'ONDO-USD', 'CHZ-USD', 'EGLD-USD', 'ZK-USD', 'AKT-USD',
+>                        'TIME-USD', 'ZETA-USD', 'GMT-USD', 'ARKM-USD', 'LIT-
+>                        USD', 'DRIFT-USD', 'JASMY-USD', 'CRO-USD', 'ELA-USD',
+>                        'ZETACHAIN-USD', 'MTL-USD', 'CELR-USD', 'ALEPH-USD',
+>                        'QUICK-USD', 'FORTH-USD', 'PIRATE-USD', 'OXT-USD',
+>                        'ANT-USD', 'AUDIO-USD', 'A8-USD', 'MOODENG-USD',
+>                        'WLUNA-USD', 'BLAST-USD', 'POL-USD', 'MANA-USD',
+>                        'RONIN-USD', 'PLU-USD', 'SUI-USD', 'FET-USD', 'FARM-
+>                        USD', 'MNDE-USD', 'EOS-USD', 'BCH-USD', 'DOGE-USD',
+>                        'HIGH-USD', 'ZRO-USD', 'SUPER-USD', 'CRV-USD', 'BOND-
+>                        USD', 'STG-USD', 'TONE-USD', 'DAR-USD', 'RNDR-USD',
+>                        'FORT-USD', 'GLM-USD', 'MOG-USD', 'APT-USD', 'RAD-USD',
+>                        'EIGEN-USD', 'SYLO-USD', 'PNG-USD', 'KSM-USD', 'BAT-
+>                        USD', 'SWELL-USD', 'LRDS-USD', 'WBTC-USD', 'AGLD-USD',
+>                        'LPT-USD', 'RBN-USD', 'MASK-USD', 'HBAR-USD', 'G-USD',
+>                        'SOL-USD', 'AVT-USD', 'SAND-USD', 'DASH-USD', 'BONK-
+>                        USD', 'FIL-USD', 'ADA-USD', 'NEON-USD', 'XYO-USD',
+>                        'GYEN-USD', 'ORN-USD', 'CVC-USD', 'TNSR-USD', 'BAND-
+>                        USD', 'ALCX-USD', 'ZEN-USD', 'OGN-USD', 'COTI-USD',
+>                        'PRCL-USD', 'GST-USD', 'API3-USD', 'SEI-USD', 'BOBA-
+>                        USD', 'AUCTION-USD', 'GAL-USD', 'HOPR-USD', 'VGX-USD',
+>                        'SHDW-USD', 'UST-USD', 'MAGIC-USD', 'TRAC-USD', 'GIGA-
+>                        USD', 'IOTX-USD', 'RLC-USD', 'ENJ-USD', 'JTO-USD', 'IO-
+>                        USD', 'DESO-USD', 'REP-USD', 'PLA-USD', 'PYR-USD',
+>                        'XCN-USD', 'POLY-USD', 'DDX-USD', 'SD-USD', 'ORCA-USD',
+>                        'DEXT-USD', 'POLS-USD', 'REN-USD', 'MEDIA-USD', 'MIR-
+>                        USD', 'MSOL-USD', 'ICP-USD', 'PYUSD-USD', 'MATH-USD',
+>                        'COW-USD', 'LOKA-USD', 'VTHO-USD', 'STRK-USD', 'AMP-
+>                        USD', 'POND-USD', 'METIS-USD', 'OMG-USD', 'NU-USD',
+>                        'ILV-USD', 'UNI-USD', 'MXC-USD', 'NKN-USD', 'LINK-USD',
+>                        'CTSI-USD', 'LRC-USD', 'SPELL-USD', 'STORJ-USD', 'ASM-
+>                        USD', 'JUP-USD', 'ABT-USD', 'NMR-USD', 'DEGEN-USD',
+>                        'ARPA-USD', 'TURBO-USD', 'GNO-USD', 'LCX-USD', 'SHIB-
+>                        USD', 'USDT-USD', 'AXS-USD', 'BNT-USD', 'DAI-USD',
+>                        'UNFI-USD', 'CORECHAIN-USD', 'INJ-USD', 'ACH-USD',
+>                        'STX-USD', 'RGT-USD', 'SNT-USD', 'VARA-USD', 'FIS-USD',
+>                        'FX-USD', 'KARRAT-USD', 'DIA-USD', 'ERN-USD', 'UMA-
+>                        USD', 'SEAM-USD', 'SUSHI-USD', 'ANKR-USD', 'RENDER-
+>                        USD', 'ETH-USD', 'AVAX-USD', 'OMNI-USD', 'DOT-USD',
+>                        'INDEX-USD', 'FIDA-USD', 'BTRST-USD', 'OSMO-USD', 'RAI-
+>                        USD', 'CTX-USD', 'AST-USD', 'APE-USD', 'MDT-USD',
+>                        'CGLD-USD', 'BAL-USD', 'BUSD-USD', 'GHST-USD', 'GRT-
+>                        USD', 'CLV-USD', 'VOXEL-USD', 'COVAL-USD', 'DIMO-USD',
+>                        'INV-USD', 'LTC-USD', 'WCFG-USD', 'ALGO-USD', 'POWR-
+>                        USD', 'MULTI-USD', 'PAX-USD', 'FLR-USD', 'XTZ-USD',
+>                        'RPL-USD', 'WAMPL-USD', 'SAFE-USD', 'MPL-USD', 'LSETH-
+>                        USD', 'CBETH-USD', 'OCEAN-USD', 'SNX-USD', 'QSP-USD',
+>                        'SUKU-USD', 'HONEY-USD', 'SHPING-USD', 'ACX-USD', 'DYP-
+>                        USD', 'TRB-USD', 'BLUR-USD', 'ZEC-USD', 'ENS-USD',
+>                        'XRP-USD', 'WIF-USD', 'LDO-USD', 'BLZ-USD', 'ETC-USD',
+>                        'SPA-USD', 'COMP-USD', 'NCT-USD', 'TIA-USD', 'EURC-
+>                        USD', 'KRL-USD', 'PRIME-USD', 'BICO-USD', 'KNC-USD',
+>                        'ME-USD', 'SWFTC-USD', 'UPI-USD', 'C98-USD', '00-USD',
+>                        'QI-USD', 'ROSE-USD', 'CVX-USD', 'NEST-USD', 'MINA-
+>                        USD', 'BADGER-USD', 'HNT-USD', 'PERP-USD', 'AERGO-USD',
+>                        'QNT-USD', 'SKL-USD', 'TRU-USD', 'LQTY-USD', 'WAXL-
+>                        USD', 'ZRX-USD', 'DNT-USD', 'CRPT-USD', 'MKR-USD',
+>                        'IDEX-USD', 'MATIC-USD', 'GALA-USD', 'DREP-USD', 'KEEP-
+>                        USD', 'BTC-USD', 'RARE-USD', 'T-USD', 'MCO2-USD',
+>                        'AERO-USD', 'BIGTIME-USD', 'RARI-USD', 'ALEO-USD',
+>                        'AIOZ-USD', 'LOOM-USD', '1INCH-USD', 'PUNDIX-USD',
+>                        'HFT-USD', 'VELO-USD', 'FLOKI-USD', 'BIT-USD', 'KAVA-
+>                        USD', 'OP-USD', 'SYN-USD', 'IMX-USD', 'ATOM-USD', 'ATA-
+>                        USD'], type='csv', interval=3600, all_tokens=True,
+>                        refresh_24h=False)
 
 \*Downloads and maintains historical price data for Coinbase tokens,
 saving to files.
@@ -243,6 +246,8 @@ type (str): File format to save data - either “csv” or “parquet”.
 Defaults to “csv” interval (int): Time interval in seconds between price
 points. Defaults to 3600 (1 hour) all_tokens (bool): If True, includes
 any additional tokens found in the folder path. Defaults to True
+refresh_24h (bool): If True, replaces at least 24 hours. Defaults to
+False
 
 The function: - Creates the folder_path if it doesn’t exist - Date/Time
 is UTC - For each token, checks if data file exists: - If exists: Loads
@@ -254,7 +259,37 @@ format, handling duplicates and sorting by date - For hourly data
 ------------------------------------------------------------------------
 
 <a
-href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L262"
+href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L266"
+target="_blank" style="float:right; font-size:smaller">source</a>
+
+### coinbase_data_update
+
+>      coinbase_data_update (folder_path='../data/coinbase', token_list=['AAVE-
+>                            USD'], type='parquet', interval=3600,
+>                            all_tokens=False, refresh_24h=True)
+
+\*Downloads new historical price data for Coinbase tokens… no saving
+
+Args: folder_path (str): Path where token data files will be stored.
+Defaults to “../data/coinbase” token_list (list): List of token IDs to
+process. Defaults to all USD trading pairs from coinbase_usd_tokens()
+type (str): File format to save data - either “csv” or “parquet”.
+Defaults to “csv” interval (int): Time interval in seconds between price
+points. Defaults to 3600 (1 hour) all_tokens (bool): If True, includes
+any additional tokens found in the folder path. Defaults to True
+refresh_24h (bool): If True, replaces at least 24 hours. Defaults to
+False Returns: df (pandas.DataFrame): DataFrame of historical price data
+The function: - Creates the folder_path if it doesn’t exist - Date/Time
+is UTC - For each token, checks if data file exists: - If exists: Loads
+file and appends any new data since last recorded date - If not exists:
+Downloads full history starting from 2016 - Saves data in specified
+format, handling duplicates and sorting by date - For hourly data
+(interval=3600), aligns to hour boundaries\*
+
+------------------------------------------------------------------------
+
+<a
+href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L340"
 target="_blank" style="float:right; font-size:smaller">source</a>
 
 ### read_all_files
@@ -273,6 +308,40 @@ files in the folder.
 Raises: ValueError: If file type is not supported (must be “csv” or
 “parquet”).\*
 
+------------------------------------------------------------------------
+
+<a
+href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L368"
+target="_blank" style="float:right; font-size:smaller">source</a>
+
+### coinbase_price_last_day
+
+>      coinbase_price_last_day (pair='BTC-USD')
+
+\*Fetch the last day’s price for a given Coinbase token. This fuction is
+a helper function around coinbase_price_history().
+
+Args: pair (str): Coinbase token pair, e.g., “BTC-USD”. Defaults to
+“BTC-USD”.
+
+Returns: pandas dataframe: Last 24 hours price data.\*
+
+------------------------------------------------------------------------
+
+<a
+href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L387"
+target="_blank" style="float:right; font-size:smaller">source</a>
+
+### binance_format
+
+>      binance_format (df)
+
+\*Convert coinbase dataframe to binance format.
+
+Args: df (pandas dataframe): Coinbase dataframe.
+
+Returns: pandas dataframe: Binance format dataframe.\*
+
 ## Examples
 
 Load the package
@@ -288,59 +357,59 @@ tokens = coinbase_tokens()
 print(tokens)
 ```
 
-                 id base_currency quote_currency quote_increment base_increment  \
-    0       GTC-USD           GTC            USD            0.01           0.01   
-    1      DOGE-USD          DOGE            USD         0.00001            0.1   
-    2      QSP-USDT           QSP           USDT         0.00001              1   
-    3      DASH-BTC          DASH            BTC        0.000001          0.001   
-    4      FIS-USDT           FIS           USDT          0.0001            0.1   
-    ..          ...           ...            ...             ...            ...   
-    641     LPT-USD           LPT            USD            0.01          0.001   
-    642    BOBA-USD          BOBA            USD          0.0001            0.1   
-    643  AURORA-USD        AURORA            USD           0.001           0.01   
-    644     XRP-EUR           XRP            EUR          0.0001       0.000001   
-    645     LTC-EUR           LTC            EUR            0.01     0.00000001   
+                id base_currency quote_currency quote_increment base_increment  \
+    0     ELA-USDT           ELA           USDT           0.001           0.01   
+    1     ATOM-BTC          ATOM            BTC       0.0000001            0.1   
+    2     BAND-USD          BAND            USD           0.001           0.01   
+    3      ACH-USD           ACH            USD        0.000001            0.1   
+    4     GHST-USD          GHST            USD           0.001           0.01   
+    ..         ...           ...            ...             ...            ...   
+    651   XCN-USDT           XCN           USDT         0.00001            0.1   
+    652    CHZ-EUR           CHZ            EUR          0.0001            0.1   
+    653   ALGO-USD          ALGO            USD          0.0001            0.1   
+    654  TRIBE-USD         TRIBE            USD          0.0001            0.1   
+    655    COW-USD           COW            USD          0.0001            0.1   
 
         display_name min_market_funds  margin_enabled  post_only  limit_only  \
-    0        GTC-USD                1           False      False       False   
-    1       DOGE-USD                1           False      False       False   
-    2       QSP-USDT                1           False      False       False   
-    3       DASH-BTC         0.000016           False      False       False   
-    4       FIS-USDT                1           False      False       False   
+    0       ELA-USDT                1           False      False       False   
+    1       ATOM-BTC         0.000016           False      False       False   
+    2       BAND-USD                1           False      False       False   
+    3        ACH-USD                1           False      False       False   
+    4       GHST-USD                1           False      False       False   
     ..           ...              ...             ...        ...         ...   
-    641      LPT-USD                1           False      False       False   
-    642     BOBA-USD                1           False      False       False   
-    643   AURORA-USD                1           False      False       False   
-    644      XRP-EUR                1           False      False       False   
-    645      LTC-EUR             0.84           False      False       False   
+    651     XCN-USDT                1           False      False       False   
+    652      CHZ-EUR             0.84           False      False       False   
+    653     ALGO-USD                1           False      False       False   
+    654    TRIBE-USD                1           False      False       False   
+    655      COW/USD                1           False      False       False   
 
          cancel_only    status status_message  trading_disabled  fx_stablecoin  \
-    0          False    online                            False          False   
+    0          False  delisted                             True          False   
     1          False    online                            False          False   
-    2          False  delisted                             True          False   
+    2          False    online                            False          False   
     3          False    online                            False          False   
-    4          False  delisted                             True          False   
+    4          False    online                            False          False   
     ..           ...       ...            ...               ...            ...   
-    641        False    online                            False          False   
-    642        False    online                            False          False   
-    643        False    online                            False          False   
-    644        False    online                            False          False   
-    645        False    online                            False          False   
+    651        False  delisted                             True          False   
+    652        False    online                            False          False   
+    653        False    online                            False          False   
+    654        False  delisted                             True          False   
+    655        False    online                            False          False   
 
         max_slippage_percentage  auction_mode high_bid_limit_percentage  
-    0                0.05000000         False                            
+    0                0.03000000         False                            
     1                0.03000000         False                            
-    2                0.05000000         False                            
+    2                0.03000000         False                            
     3                0.03000000         False                            
     4                0.03000000         False                            
     ..                      ...           ...                       ...  
-    641              0.03000000         False                            
-    642              0.03000000         False                            
-    643              0.03000000         False                            
-    644              0.05000000         False                            
-    645              0.03000000         False                            
+    651              0.03000000         False                            
+    652              0.03000000         False                            
+    653              0.03000000         False                            
+    654              0.03000000         False                            
+    655              0.03000000         False                            
 
-    [646 rows x 18 columns]
+    [656 rows x 18 columns]
 
 To make it simpler, we can filter the tokens by the quote currency. In
 this case, we filter for USD.
@@ -350,59 +419,59 @@ usd_tokens = coinbase_usd_tokens()
 print(usd_tokens)
 ```
 
-                 id base_currency quote_currency quote_increment base_increment  \
-    0       GTC-USD           GTC            USD            0.01           0.01   
-    1      DOGE-USD          DOGE            USD         0.00001            0.1   
-    5      MUSD-USD          MUSD            USD          0.0001           0.01   
-    7       SUI-USD           SUI            USD          0.0001            0.1   
-    8      TIME-USD          TIME            USD            0.01          0.001   
-    ..          ...           ...            ...             ...            ...   
-    637    ONDO-USD          ONDO            USD         0.00001           0.01   
-    639   ALEPH-USD         ALEPH            USD          0.0001            0.1   
-    641     LPT-USD           LPT            USD            0.01          0.001   
-    642    BOBA-USD          BOBA            USD          0.0001            0.1   
-    643  AURORA-USD        AURORA            USD           0.001           0.01   
+                id base_currency quote_currency quote_increment base_increment  \
+    2     BAND-USD          BAND            USD           0.001           0.01   
+    3      ACH-USD           ACH            USD        0.000001            0.1   
+    4     GHST-USD          GHST            USD           0.001           0.01   
+    7     SAFE-USD          SAFE            USD          0.0001           0.01   
+    8      AMP-USD           AMP            USD         0.00001              1   
+    ..         ...           ...            ...             ...            ...   
+    646   ORCA-USD          ORCA            USD          0.0001           0.01   
+    648    DAI-USD           DAI            USD          0.0001        0.00001   
+    653   ALGO-USD          ALGO            USD          0.0001            0.1   
+    654  TRIBE-USD         TRIBE            USD          0.0001            0.1   
+    655    COW-USD           COW            USD          0.0001            0.1   
 
         display_name min_market_funds  margin_enabled  post_only  limit_only  \
-    0        GTC-USD                1           False      False       False   
-    1       DOGE-USD                1           False      False       False   
-    5       MUSD-USD                1           False      False       False   
-    7        SUI-USD                1           False      False       False   
-    8       TIME-USD                1           False      False        True   
+    2       BAND-USD                1           False      False       False   
+    3        ACH-USD                1           False      False       False   
+    4       GHST-USD                1           False      False       False   
+    7       SAFE/USD                1           False      False       False   
+    8        AMP-USD                1           False      False       False   
     ..           ...              ...             ...        ...         ...   
-    637     ONDO-USD                1           False      False       False   
-    639    ALEPH-USD                1           False      False       False   
-    641      LPT-USD                1           False      False       False   
-    642     BOBA-USD                1           False      False       False   
-    643   AURORA-USD                1           False      False       False   
+    646     ORCA-USD                1           False      False       False   
+    648      DAI-USD                1           False      False       False   
+    653     ALGO-USD                1           False      False       False   
+    654    TRIBE-USD                1           False      False       False   
+    655      COW/USD                1           False      False       False   
 
          cancel_only    status status_message  trading_disabled  fx_stablecoin  \
-    0          False    online                            False          False   
-    1          False    online                            False          False   
-    5          False  delisted                             True           True   
+    2          False    online                            False          False   
+    3          False    online                            False          False   
+    4          False    online                            False          False   
     7          False    online                            False          False   
     8          False    online                            False          False   
     ..           ...       ...            ...               ...            ...   
-    637        False    online                            False          False   
-    639        False    online                            False          False   
-    641        False    online                            False          False   
-    642        False    online                            False          False   
-    643        False    online                            False          False   
+    646        False    online                            False          False   
+    648        False    online                            False           True   
+    653        False    online                            False          False   
+    654        False  delisted                             True          False   
+    655        False    online                            False          False   
 
         max_slippage_percentage  auction_mode high_bid_limit_percentage  
-    0                0.05000000         False                            
-    1                0.03000000         False                            
-    5                0.01000000         False                            
+    2                0.03000000         False                            
+    3                0.03000000         False                            
+    4                0.03000000         False                            
     7                0.03000000         False                            
-    8                0.05000000         False                            
+    8                0.03000000         False                            
     ..                      ...           ...                       ...  
-    637              0.03000000         False                            
-    639              0.03000000         False                            
-    641              0.03000000         False                            
-    642              0.03000000         False                            
-    643              0.03000000         False                            
+    646              0.03000000         False                            
+    648              0.01000000         False                0.03000000  
+    653              0.03000000         False                            
+    654              0.03000000         False                            
+    655              0.03000000         False                            
 
-    [307 rows x 18 columns]
+    [317 rows x 18 columns]
 
 Download the historical price of BTC-USD for few months at every hour.
 IMPORTANT: datetime is in UTC!
@@ -444,15 +513,10 @@ Download all history available in coinbase for the tokens saved in
 folder “../data/coinbase” This process can take a while specially if you
 are downloading many tokens the first time.
 
-``` python
-coinbase_to_file(token_list=['AAVE-USD'],type="parquet",all_tokens=False)
-```
-
-    Processing AAVE-USD
-
 Now read the file from folder “../data/coinbase”:
 
 ``` python
+import pandas as pd
 df = pd.read_parquet("../data/coinbase/AAVE-USD.parquet")
 print(df)
 ```
@@ -464,11 +528,11 @@ print(df)
     3     2020-12-15 20:00:00   84.828   85.952   85.952   85.599   798.670   
     4     2020-12-15 21:00:00   84.744   85.893   85.599   85.208   442.464   
     ...                   ...      ...      ...      ...      ...       ...   
-    34284 2024-11-13 10:00:00  170.700  173.940  171.640  173.640  1006.822   
-    34285 2024-11-13 11:00:00  173.090  175.690  173.550  174.150  1421.733   
-    34286 2024-11-13 12:00:00  172.200  174.810  174.120  173.460  2910.486   
-    34287 2024-11-13 13:00:00  172.840  180.710  173.430  179.970  2923.998   
-    34288 2024-11-13 14:00:00  178.200  183.390  179.970  180.960  2196.952   
+    35608 2025-01-07 14:00:00  323.950  333.200  332.900  326.300  2494.366   
+    35609 2025-01-07 15:00:00  310.900  327.070  326.300  315.770  9817.720   
+    35610 2025-01-07 16:00:00  313.530  318.250  315.820  314.720  1782.992   
+    35611 2025-01-07 17:00:00  310.610  315.620  314.780  312.660  3426.675   
+    35612 2025-01-07 18:00:00  311.970  313.360  312.640  312.950   255.633   
 
                pair  
     0      AAVE-USD  
@@ -477,13 +541,13 @@ print(df)
     3      AAVE-USD  
     4      AAVE-USD  
     ...         ...  
-    34284  AAVE-USD  
-    34285  AAVE-USD  
-    34286  AAVE-USD  
-    34287  AAVE-USD  
-    34288  AAVE-USD  
+    35608  AAVE-USD  
+    35609  AAVE-USD  
+    35610  AAVE-USD  
+    35611  AAVE-USD  
+    35612  AAVE-USD  
 
-    [34289 rows x 7 columns]
+    [35613 rows x 7 columns]
 
 Full download with no files in the folder takes almost 5 hours. After
 that, it is much faster (~ 6 minutes). Clearly it will depend on your
@@ -492,315 +556,6 @@ internet speed and the last time you did the download.
 ``` python
 coinbase_to_file(type="parquet") # takes almost 5 hours if there no files in the folder!
 ```
-
-    Processing ZK-USD
-    Processing AXS-USD
-    Processing ICP-USD
-    Processing PYUSD-USD
-    Processing UPI-USD
-    Processing MATH-USD
-    Processing XLM-USD
-    Processing AGLD-USD
-    Processing GST-USD
-    Processing KAVA-USD
-    Processing TRU-USD
-    Processing ARB-USD
-    Processing ACH-USD
-    Processing AVT-USD
-    Processing ORCA-USD
-    Processing APE-USD
-    Processing ACS-USD
-    Processing STX-USD
-    Processing HFT-USD
-    Processing WAXL-USD
-    Processing GRT-USD
-    Processing UNI-USD
-    Processing SHDW-USD
-    Processing DEGEN-USD
-    Processing TIME-USD
-    Processing GAL-USD
-    Processing CORECHAIN-USD
-    Processing STG-USD
-    Processing CTX-USD
-    Processing IO-USD
-    Processing ALCX-USD
-    Processing WBTC-USD
-    Processing HOPR-USD
-    Processing KARRAT-USD
-    Processing PNG-USD
-    Processing LSETH-USD
-    Processing INJ-USD
-    Processing ARPA-USD
-    Processing RARI-USD
-    Processing LINK-USD
-    Processing CTSI-USD
-    Processing ANT-USD
-    Processing CRPT-USD
-    Processing COVAL-USD
-    Processing SYLO-USD
-    Processing ENS-USD
-    Processing ETH-USD
-    Processing MANA-USD
-    Processing FIL-USD
-    Processing POL-USD
-    Processing RAD-USD
-    Processing YFII-USD
-    Processing OSMO-USD
-    Processing GHST-USD
-    Processing AXL-USD
-    Processing REN-USD
-    Processing SNX-USD
-    Processing VET-USD
-    Processing DNT-USD
-    Processing OOKI-USD
-    Processing CELR-USD
-    Processing XTZ-USD
-    Processing MPL-USD
-    Processing RLC-USD
-    Processing FOX-USD
-    Processing GFI-USD
-    Processing COW-USD
-    Processing GUSD-USD
-    Processing MKR-USD
-    Processing ASM-USD
-    Processing OCEAN-USD
-    Processing MEDIA-USD
-    Processing OXT-USD
-    Processing LIT-USD
-    Processing UNFI-USD
-    Processing VOXEL-USD
-    Processing CRO-USD
-    Processing API3-USD
-    Processing POLY-USD
-    Processing CVX-USD
-    Processing AURORA-USD
-    Processing GNO-USD
-    Processing AUDIO-USD
-    Processing MTL-USD
-    Processing OP-USD
-    Processing NCT-USD
-    Processing JUP-USD
-    Processing RENDER-USD
-    Processing ATA-USD
-    Processing PRIME-USD
-    Processing T-USD
-    Processing OGN-USD
-    Processing A8-USD
-    Processing BAND-USD
-    Processing ACX-USD
-    Processing FIDA-USD
-    Processing APT-USD
-    Processing POWR-USD
-    Processing DREP-USD
-    Processing UST-USD
-    Processing MXC-USD
-    Processing 00-USD
-    Processing LCX-USD
-    Processing ENJ-USD
-    Processing CBETH-USD
-    Processing RGT-USD
-    Processing NEON-USD
-    Processing GODS-USD
-    Processing TONE-USD
-    Processing MONA-USD
-    Processing RONIN-USD
-    Processing OMNI-USD
-    Processing ATOM-USD
-    Processing WELL-USD
-    Processing AERGO-USD
-    Processing SOL-USD
-    Processing SHIB-USD
-    Processing EOS-USD
-    Processing LOKA-USD
-    Processing OMG-USD
-    Processing FORT-USD
-    Processing SYN-USD
-    Processing DOT-USD
-    Processing BAL-USD
-    Processing BICO-USD
-    Processing DESO-USD
-    Processing BIGTIME-USD
-    Processing BTRST-USD
-    Processing FIS-USD
-    Processing MASK-USD
-    Processing ZETACHAIN-USD
-    Processing VARA-USD
-    Processing BCH-USD
-    Processing TVK-USD
-    Processing LQTY-USD
-    Processing REP-USD
-    Processing KNC-USD
-    Processing XYO-USD
-    Processing ZETA-USD
-    Processing INV-USD
-    Processing ORN-USD
-    Processing AKT-USD
-    Processing MNDE-USD
-    Processing NMR-USD
-    Processing MINA-USD
-    Processing WCFG-USD
-    Processing DIMO-USD
-    Processing SWFTC-USD
-    Processing ONDO-USD
-    Processing KEEP-USD
-    Processing BADGER-USD
-    Processing INDEX-USD
-    Processing ADA-USD
-    Processing LTC-USD
-    Processing SD-USD
-    Processing POLS-USD
-    Processing SKL-USD
-    Processing HNT-USD
-    Processing DAI-USD
-    Processing MLN-USD
-    Processing LOOM-USD
-    Processing LDO-USD
-    Processing STORJ-USD
-    Processing BOBA-USD
-    Processing ZRX-USD
-    Processing ELA-USD
-    Processing EIGEN-USD
-    Processing ALEO-USD
-    Processing ABT-USD
-    Processing UMA-USD
-    Processing KSM-USD
-    Processing TIA-USD
-    Processing BOND-USD
-    Processing STRK-USD
-    Processing IMX-USD
-    Processing XCN-USD
-    Processing DAR-USD
-    Processing LRDS-USD
-    Processing JTO-USD
-    Processing BUSD-USD
-    Processing ETC-USD
-    Processing BONK-USD
-    Processing MIR-USD
-    Processing GALA-USD
-    Processing AUCTION-USD
-    Processing BLZ-USD
-    Processing FLOW-USD
-    Processing DRIFT-USD
-    Processing RLY-USD
-    Processing DEXT-USD
-    Processing METIS-USD
-    Processing KRL-USD
-    Processing DASH-USD
-    Processing RARE-USD
-    Processing EURC-USD
-    Processing LRC-USD
-    Processing NEST-USD
-    Processing SAND-USD
-    Processing FORTH-USD
-    Processing SUPER-USD
-    Processing AAVE-USD
-    File AAVE-USD is up to date
-    Processing BAT-USD
-    Processing CHZ-USD
-    Processing TRIBE-USD
-    Processing DOGE-USD
-    Processing JASMY-USD
-    Processing AVAX-USD
-    Processing IOTX-USD
-    Processing LPT-USD
-    Processing ROSE-USD
-    Processing FET-USD
-    Processing MDT-USD
-    Processing QUICK-USD
-    Processing SNT-USD
-    Processing FLR-USD
-    Processing ANKR-USD
-    Processing SEI-USD
-    Processing MULTI-USD
-    Processing VELO-USD
-    Processing HBAR-USD
-    Processing DDX-USD
-    Processing RPL-USD
-    Processing GYEN-USD
-    Processing CRV-USD
-    Processing ZRO-USD
-    Processing ERN-USD
-    Processing ILV-USD
-    Processing TRB-USD
-    Processing MUSD-USD
-    Processing REQ-USD
-    Processing ALICE-USD
-    Processing NKN-USD
-    Processing SPELL-USD
-    Processing PUNDIX-USD
-    Processing ALEPH-USD
-    Processing HONEY-USD
-    Processing AMP-USD
-    Processing SUI-USD
-    Processing BNT-USD
-    Processing POND-USD
-    Processing ZEC-USD
-    Processing BLUR-USD
-    Processing ARKM-USD
-    Processing PAX-USD
-    Processing SAFE-USD
-    Processing ALGO-USD
-    Processing GLM-USD
-    Processing PIRATE-USD
-    Processing RNDR-USD
-    Processing IDEX-USD
-    Processing PLA-USD
-    Processing WAMPL-USD
-    Processing C98-USD
-    Processing CLV-USD
-    Processing DIA-USD
-    Processing MUSE-USD
-    Processing PRO-USD
-    Processing TNSR-USD
-    Processing PLU-USD
-    Processing BIT-USD
-    Processing SUSHI-USD
-    Processing MOBILE-USD
-    Processing EGLD-USD
-    Processing USDT-USD
-    Processing CVC-USD
-    Processing GTC-USD
-    Processing PYR-USD
-    Processing BLAST-USD
-    Processing PERP-USD
-    Processing MCO2-USD
-    Processing RBN-USD
-    Processing GMT-USD
-    Processing MATIC-USD
-    Processing QNT-USD
-    Processing AST-USD
-    Processing AIOZ-USD
-    Processing DYP-USD
-    Processing SEAM-USD
-    Processing PRQ-USD
-    Processing CGLD-USD
-    Processing NEAR-USD
-    Processing ZEN-USD
-    Processing COMP-USD
-    Processing SHPING-USD
-    Processing FX-USD
-    Processing YFI-USD
-    Processing VTHO-USD
-    Processing VGX-USD
-    Processing MAGIC-USD
-    Processing RAI-USD
-    Processing XRP-USD
-    Processing QI-USD
-    Processing QSP-USD
-    Processing BTC-USD
-    Processing SUKU-USD
-    Processing TRAC-USD
-    Processing MSOL-USD
-    Processing AERO-USD
-    Processing NU-USD
-    Processing 1INCH-USD
-    Processing SPA-USD
-    Processing FARM-USD
-    Processing WLUNA-USD
-    Processing HIGH-USD
-    Processing SWELL-USD
-    Processing COTI-USD
-    Processing G-USD
 
 Read all files in the folder into a single dataframe:
 
@@ -816,11 +571,11 @@ print(df)
     3     2022-10-11 20:00:00  1.140000  1.382000  1.292100  1.331900   
     4     2022-10-11 21:00:00  1.268600  1.649800  1.331900  1.546400   
     ...                   ...       ...       ...       ...       ...   
-    53353 2024-11-13 10:00:00  0.347332  0.352815  0.349427  0.351838   
-    53354 2024-11-13 11:00:00  0.351291  0.356219  0.351856  0.352702   
-    53355 2024-11-13 12:00:00  0.348485  0.353638  0.352429  0.351266   
-    53356 2024-11-13 13:00:00  0.348793  0.363609  0.350528  0.361865   
-    53357 2024-11-13 14:00:00  0.357774  0.365399  0.361904  0.362130   
+    54654 2025-01-06 15:00:00  0.547015  0.556522  0.548198  0.554798   
+    54655 2025-01-06 16:00:00  0.547348  0.557769  0.553998  0.551552   
+    54656 2025-01-06 17:00:00  0.540932  0.551227  0.550957  0.546732   
+    54657 2025-01-06 18:00:00  0.543649  0.549062  0.546999  0.546143   
+    54658 2025-01-06 19:00:00  0.545549  0.550554  0.546045  0.548921   
 
                  volume     pair  
     0      2.214310e+05   00-USD  
@@ -829,10 +584,327 @@ print(df)
     3      6.753579e+05   00-USD  
     4      8.359198e+05   00-USD  
     ...             ...      ...  
-    53353  3.945656e+04  ZRX-USD  
-    53354  4.093085e+04  ZRX-USD  
-    53355  9.242605e+04  ZRX-USD  
-    53356  1.825164e+05  ZRX-USD  
-    53357  6.881657e+04  ZRX-USD  
+    54654  3.270357e+05  ZRX-USD  
+    54655  2.239506e+05  ZRX-USD  
+    54656  2.097155e+05  ZRX-USD  
+    54657  1.189937e+05  ZRX-USD  
+    54658  5.694513e+04  ZRX-USD  
 
-    [6482987 rows x 7 columns]
+    [6827588 rows x 7 columns]
+
+Download the last day’s price for AAVE-USD:
+
+``` python
+# eval: false
+coinbase_price_last_day(pair='AAVE-USD')
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">datetime</th>
+<th data-quarto-table-cell-role="th">low</th>
+<th data-quarto-table-cell-role="th">high</th>
+<th data-quarto-table-cell-role="th">open</th>
+<th data-quarto-table-cell-role="th">close</th>
+<th data-quarto-table-cell-role="th">volume</th>
+<th data-quarto-table-cell-role="th">pair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23</td>
+<td>2025-01-06 19:00:00</td>
+<td>343.79</td>
+<td>347.51</td>
+<td>344.22</td>
+<td>346.08</td>
+<td>696.867</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22</td>
+<td>2025-01-06 20:00:00</td>
+<td>342.17</td>
+<td>346.63</td>
+<td>346.19</td>
+<td>343.71</td>
+<td>1024.476</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21</td>
+<td>2025-01-06 21:00:00</td>
+<td>340.36</td>
+<td>344.01</td>
+<td>343.62</td>
+<td>340.47</td>
+<td>1223.404</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20</td>
+<td>2025-01-06 22:00:00</td>
+<td>339.69</td>
+<td>342.42</td>
+<td>340.51</td>
+<td>340.01</td>
+<td>1577.239</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>2025-01-06 23:00:00</td>
+<td>337.55</td>
+<td>341.68</td>
+<td>340.01</td>
+<td>341.65</td>
+<td>1224.641</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>2025-01-07 00:00:00</td>
+<td>338.43</td>
+<td>342.70</td>
+<td>341.52</td>
+<td>338.54</td>
+<td>917.205</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>2025-01-07 01:00:00</td>
+<td>337.49</td>
+<td>343.00</td>
+<td>338.56</td>
+<td>342.10</td>
+<td>1536.442</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>2025-01-07 02:00:00</td>
+<td>337.82</td>
+<td>343.34</td>
+<td>342.28</td>
+<td>338.23</td>
+<td>2047.035</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2025-01-07 03:00:00</td>
+<td>336.86</td>
+<td>339.90</td>
+<td>338.42</td>
+<td>339.52</td>
+<td>1057.940</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2025-01-07 04:00:00</td>
+<td>337.47</td>
+<td>340.03</td>
+<td>339.48</td>
+<td>337.54</td>
+<td>860.860</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2025-01-07 05:00:00</td>
+<td>337.11</td>
+<td>338.98</td>
+<td>337.60</td>
+<td>338.91</td>
+<td>1117.530</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2025-01-07 06:00:00</td>
+<td>337.59</td>
+<td>339.88</td>
+<td>338.86</td>
+<td>339.29</td>
+<td>759.073</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2025-01-07 07:00:00</td>
+<td>337.02</td>
+<td>340.44</td>
+<td>339.31</td>
+<td>337.63</td>
+<td>309.481</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2025-01-07 08:00:00</td>
+<td>336.80</td>
+<td>339.58</td>
+<td>337.62</td>
+<td>337.44</td>
+<td>697.592</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2025-01-07 09:00:00</td>
+<td>333.31</td>
+<td>337.62</td>
+<td>337.50</td>
+<td>335.13</td>
+<td>1350.081</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2025-01-07 10:00:00</td>
+<td>332.76</td>
+<td>335.13</td>
+<td>335.13</td>
+<td>334.46</td>
+<td>462.950</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2025-01-07 11:00:00</td>
+<td>330.50</td>
+<td>335.83</td>
+<td>334.43</td>
+<td>333.38</td>
+<td>1858.256</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2025-01-07 12:00:00</td>
+<td>330.64</td>
+<td>333.90</td>
+<td>333.42</td>
+<td>332.69</td>
+<td>909.802</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2025-01-07 13:00:00</td>
+<td>331.88</td>
+<td>334.83</td>
+<td>332.73</td>
+<td>332.79</td>
+<td>706.971</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2025-01-07 14:00:00</td>
+<td>323.95</td>
+<td>333.20</td>
+<td>332.90</td>
+<td>326.30</td>
+<td>2494.366</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2025-01-07 15:00:00</td>
+<td>310.90</td>
+<td>327.07</td>
+<td>326.30</td>
+<td>315.77</td>
+<td>9817.720</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2025-01-07 16:00:00</td>
+<td>313.53</td>
+<td>318.25</td>
+<td>315.82</td>
+<td>314.72</td>
+<td>1782.992</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2025-01-07 17:00:00</td>
+<td>310.61</td>
+<td>315.62</td>
+<td>314.78</td>
+<td>312.66</td>
+<td>3426.675</td>
+<td>AAVE-USD</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2025-01-07 18:00:00</td>
+<td>308.59</td>
+<td>314.32</td>
+<td>312.64</td>
+<td>309.27</td>
+<td>1807.796</td>
+<td>AAVE-USD</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+Update the data for AAVE-USD and convert it to Binance format (minor
+changes in column names and sequence):
+
+``` python
+df = coinbase_data_update(token_list=['BTC-USD'])
+binance_df = binance_format(df)
+print(binance_df)
+```
+
+    Processing BTC-USD
+                               date       Open       High       Low     Close  \
+    0     2016-01-01 00:00:00+00:00     430.35     431.82    430.35    430.61   
+    1     2016-01-01 01:00:00+00:00     430.59     430.98    430.00    430.78   
+    2     2016-01-01 02:00:00+00:00     430.80     430.89    430.50    430.62   
+    3     2016-01-01 03:00:00+00:00     430.62     432.84    430.31    432.84   
+    4     2016-01-01 04:00:00+00:00     432.74     437.15    432.72    436.12   
+    ...                         ...        ...        ...       ...       ...   
+    79024 2025-01-07 14:00:00+00:00  100635.66  100874.75  99714.26  99966.01   
+    79025 2025-01-07 15:00:00+00:00   99963.14  100120.80  97100.00  97902.38   
+    79026 2025-01-07 16:00:00+00:00   97906.68   98324.08  97500.01  97705.66   
+    79027 2025-01-07 17:00:00+00:00   97705.66   97779.40  96545.81  97233.28   
+    79028 2025-01-07 18:00:00+00:00   97233.25   97519.49  96545.00  96633.74   
+
+                Volume pair  
+    0       160.179593  btc  
+    1        92.132315  btc  
+    2        93.024327  btc  
+    3       103.811532  btc  
+    4       363.875951  btc  
+    ...            ...  ...  
+    79024  1006.819765  btc  
+    79025  3947.701262  btc  
+    79026  1181.333506  btc  
+    79027   977.511431  btc  
+    79028   687.292645  btc  
+
+    [79029 rows x 7 columns]
