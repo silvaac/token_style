@@ -162,6 +162,9 @@ def coinbase_price_history(pair='BTC-USD', start_date='2024-01-01', end_date='20
         if df is not None:
             price_list.append(df)
     # concatenate the dataframes and sort by date and drop duplicates dates
+    if price_list == []:
+        print(f"{pair} is not listed.")
+        return pd.DataFrame()
     df = pd.concat(price_list)
     df = df.sort_values(by='datetime')
     df = df.drop_duplicates(subset='datetime').reset_index(drop=True)

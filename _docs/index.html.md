@@ -38,8 +38,7 @@ $ pip install git+https://github.com/silvaac/token_style.git
 
 ### Documentation
 
-Documentation can be found hosted on this GitHub
-[repository](https://github.com/silvaac/token_style)’s
+Documentation can be found hosted on this GitHub repository’s
 [pages](https://silvaac.github.io/token_style/).
 
 ## How to use
