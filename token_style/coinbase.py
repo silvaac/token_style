@@ -264,38 +264,30 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
 
 # %% ../nbs/coinbase.ipynb 10
 def coinbase_data_update(folder_path="../data/coinbase",token_list=['AAVE-USD'],type="parquet",
-                     interval=3600,all_tokens=False,refresh_24h=True):
+                     interval=3600,refresh_24h=True):
     """
     Downloads new historical price data for Coinbase tokens... no saving
     
     Args:
         folder_path (str): Path where token data files will be stored. Defaults to "../data/coinbase"
-        token_list (list): List of token IDs to process. Defaults to all USD trading pairs from coinbase_usd_tokens()
-        type (str): File format to save data - either "csv" or "parquet". Defaults to "csv"
+        token_list (list): List of token IDs to process
+        type (str): File format to save data - either "csv" or "parquet". Defaults to "parquet"
         interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour)
-        all_tokens (bool): If True, includes any additional tokens found in the folder path. Defaults to True
-        refresh_24h (bool): If True, replaces at least 24 hours. Defaults to False
+        refresh_24h (bool): If True, replaces at least 24 hours. Defaults to True
+    
     Returns:
         df (pandas.DataFrame): DataFrame of historical price data
+    
     The function:
-    - Creates the folder_path if it doesn't exist
     - Date/Time is UTC
     - For each token, checks if data file exists:
         - If exists: Loads file and appends any new data since last recorded date
         - If not exists: Downloads full history starting from 2016
-    - Saves data in specified format, handling duplicates and sorting by date
     - For hourly data (interval=3600), aligns to hour boundaries
     """
-    # create the folder if it does not exist, and if it exists, read the file names
+    
     if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-    else:
-        if all_tokens:
-            file_names = os.listdir(folder_path)
-            # remove the file extension
-            tokens_in_folder = [os.path.splitext(file_name)[0] for file_name in file_names]
-            # join tokens in folder with token_list and remove the duplicates
-            token_list = list(set(token_list + tokens_in_folder))
+        raise FileNotFoundError(f"Folder {folder_path} does not exist")
     # loop over the token list and open the file if it exists and append the new data
     for token in token_list:
         print(f"Processing {token}")
