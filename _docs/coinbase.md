@@ -22,8 +22,8 @@ target="_blank" style="float:right; font-size:smaller">source</a>
 ### retrieve_coinbase_price
 
 >      retrieve_coinbase_price (pair='BTC-USD', time_interval=3600,
->                               end_date='2025-01-21T15:30:59Z',
->                               start_date='2025-01-19T15:30:59Z')
+>                               end_date='2025-01-21T15:45:57Z',
+>                               start_date='2025-01-19T15:45:57Z')
 
 \*Retrieves historical price data from Coinbase for a given trading pair
 and time interval.
@@ -162,79 +162,78 @@ target="_blank" style="float:right; font-size:smaller">source</a>
 
 ### coinbase_to_file
 
->      coinbase_to_file (folder_path='../data/coinbase', token_list=['HNT-USD',
->                        'BAT-USD', 'BCH-USD', 'WAXL-USD', 'DESO-USD', 'MANA-
->                        USD', 'CBETH-USD', 'AVT-USD', 'UST-USD', 'ARB-USD',
->                        'QI-USD', 'LCX-USD', 'PAX-USD', 'SNT-USD', 'KNC-USD',
->                        'PYR-USD', 'ACX-USD', 'MEDIA-USD', 'EOS-USD', 'EURC-
->                        USD', 'MONA-USD', 'YFII-USD', 'MKR-USD', 'ALCX-USD',
->                        'MLN-USD', 'POL-USD', 'CELR-USD', '1INCH-USD',
->                        'ZETACHAIN-USD', 'PIRATE-USD', 'API3-USD', 'LINK-USD',
->                        'GTC-USD', 'MULTI-USD', 'SWFTC-USD', 'LIT-USD',
->                        'AUCTION-USD', 'DYP-USD', 'GLM-USD', 'HFT-USD', 'BNT-
->                        USD', 'VELO-USD', 'HIGH-USD', 'ELA-USD', 'OCEAN-USD',
->                        'SYLO-USD', 'XYO-USD', 'BLZ-USD', 'ORCA-USD', 'SKL-
->                        USD', 'T-USD', 'ALGO-USD', 'USDT-USD', 'XCN-USD',
->                        'TRUMP-USD', 'ANKR-USD', 'CRV-USD', 'POWR-USD', 'OP-
->                        USD', 'GHST-USD', 'IOTX-USD', 'SEAM-USD', 'CVX-USD',
->                        'VGX-USD', 'SUKU-USD', 'FIL-USD', 'WIF-USD', 'C98-USD',
->                        'GFI-USD', 'ATOM-USD', 'ROSE-USD', 'CHZ-USD', 'RBN-
->                        USD', 'NKN-USD', 'CTSI-USD', 'ZEN-USD', 'ETH-USD',
->                        'NMR-USD', 'TRIBE-USD', 'TNSR-USD', 'IO-USD', 'MUSE-
->                        USD', 'GALA-USD', 'RAD-USD', 'AMP-USD', 'KAVA-USD',
->                        'CLV-USD', 'SAFE-USD', 'COMP-USD', 'AURORA-USD', 'RLC-
->                        USD', 'REP-USD', 'GRT-USD', 'XRP-USD', 'PEPE-USD',
->                        'ICP-USD', 'QSP-USD', 'SHDW-USD', 'AVAX-USD', 'DOGE-
->                        USD', 'AXL-USD', 'FET-USD', 'DEXT-USD', 'RLY-USD',
->                        'ACH-USD', 'REQ-USD', 'MOG-USD', 'RPL-USD', 'PERP-USD',
->                        'BADGER-USD', 'SUPER-USD', 'FLOKI-USD', 'JUP-USD',
->                        'AXS-USD', 'NEON-USD', 'MUSD-USD', 'AERGO-USD', 'DASH-
->                        USD', 'DNT-USD', 'FORT-USD', 'MINA-USD', 'ZRX-USD',
->                        'SOL-USD', 'UPI-USD', 'ILV-USD', 'SHPING-USD', 'ZRO-
->                        USD', 'MDT-USD', 'DAI-USD', 'CVC-USD', 'STX-USD', 'MIR-
->                        USD', 'WELL-USD', 'SUI-USD', 'IMX-USD', 'TRU-USD',
->                        'SUSHI-USD', 'GST-USD', 'SEI-USD', 'HOPR-USD', 'YFI-
->                        USD', 'IDEX-USD', 'ZEC-USD', 'NU-USD', 'OMNI-USD',
->                        'HBAR-USD', 'ANT-USD', 'ALEPH-USD', 'GYEN-USD', 'FIS-
->                        USD', 'BLUR-USD', 'BIT-USD', 'BICO-USD', 'MOVE-USD',
->                        'AUDIO-USD', 'AST-USD', 'RONIN-USD', 'ETC-USD', 'ABT-
->                        USD', 'GIGA-USD', '00-USD', 'XLM-USD', 'COVAL-USD',
->                        'REN-USD', 'LPT-USD', 'BIGTIME-USD', 'FX-USD', 'OGN-
->                        USD', 'MTL-USD', 'DOT-USD', 'XTZ-USD', 'CRPT-USD',
->                        'UMA-USD', 'NEAR-USD', 'STORJ-USD', 'LOOM-USD', 'PRCL-
->                        USD', 'ALEO-USD', 'OXT-USD', 'BOND-USD', 'RGT-USD',
->                        'DDX-USD', 'EGLD-USD', 'PYUSD-USD', 'EIGEN-USD', 'APT-
->                        USD', 'POLS-USD', 'SPA-USD', 'WCFG-USD', 'QUICK-USD',
->                        'ERN-USD', 'SYN-USD', 'AGLD-USD', 'GNO-USD', 'POLY-
->                        USD', 'FLOW-USD', 'METIS-USD', 'BONK-USD', 'OOKI-USD',
->                        'LOKA-USD', 'ZETA-USD', 'WBTC-USD', 'SD-USD', 'DREP-
->                        USD', 'ARPA-USD', 'FARM-USD', 'ACS-USD', 'CTX-USD',
->                        'MNDE-USD', 'LTC-USD', 'A8-USD', 'ENS-USD', 'ORN-USD',
->                        'COW-USD', 'AKT-USD', 'RARE-USD', 'OSMO-USD', 'SHIB-
->                        USD', 'NEST-USD', 'PRQ-USD', 'STG-USD', 'TURBO-USD',
->                        'FIDA-USD', 'DEGEN-USD', 'APE-USD', 'INV-USD', 'TVK-
->                        USD', 'TRB-USD', 'KSM-USD', 'MPL-USD', 'MATH-USD',
->                        'TRAC-USD', 'AERO-USD', 'WLUNA-USD', 'KARRAT-USD',
->                        'PLU-USD', 'BUSD-USD', 'GODS-USD', 'SPELL-USD', 'TONE-
->                        USD', 'VTHO-USD', 'FORTH-USD', 'MXC-USD', 'RNDR-USD',
->                        'BAL-USD', 'RAI-USD', 'PLA-USD', 'MCO2-USD', 'NCT-USD',
->                        'QNT-USD', 'RENDER-USD', 'JASMY-USD', 'CGLD-USD',
->                        'AAVE-USD', 'OMG-USD', 'UNI-USD', 'GUSD-USD', 'SNX-
->                        USD', 'GMT-USD', 'SAND-USD', 'ADA-USD', 'JTO-USD',
->                        'KRL-USD', 'MASK-USD', 'WAMPL-USD', 'VET-USD', 'DIMO-
->                        USD', 'ZK-USD', 'LQTY-USD', 'INDEX-USD', 'CORECHAIN-
->                        USD', 'ARKM-USD', 'ENJ-USD', 'LDO-USD', 'DIA-USD',
->                        'HONEY-USD', 'TIME-USD', 'MSOL-USD', 'KEEP-USD', 'LRDS-
->                        USD', 'DRIFT-USD', 'ALICE-USD', 'COTI-USD', 'VOXEL-
->                        USD', 'MAGIC-USD', 'PRO-USD', 'BAND-USD', 'PRIME-USD',
->                        'BLAST-USD', 'TIA-USD', 'DAR-USD', 'CRO-USD', 'FLR-
->                        USD', 'BOBA-USD', 'MATIC-USD', 'INJ-USD', 'SWELL-USD',
->                        'MOODENG-USD', 'BTRST-USD', 'BTC-USD', 'PNUT-USD',
->                        'RARI-USD', 'MOBILE-USD', 'ATA-USD', 'PNG-USD', 'VARA-
->                        USD', 'FOX-USD', 'STRK-USD', 'POND-USD', 'LSETH-USD',
->                        'GAL-USD', 'UNFI-USD', 'AIOZ-USD', 'ONDO-USD', 'ME-
->                        USD', 'PUNDIX-USD', 'G-USD', 'ASM-USD', 'LRC-USD'],
->                        type='csv', interval=3600, all_tokens=True,
+>      coinbase_to_file (folder_path='../data/coinbase', token_list=['VELO-USD',
+>                        'NCT-USD', 'CELR-USD', 'SNT-USD', 'POWR-USD', 'MSOL-
+>                        USD', 'ZETACHAIN-USD', 'DIMO-USD', 'HNT-USD', 'MUSE-
+>                        USD', 'REN-USD', 'KARRAT-USD', 'IO-USD', 'ASM-USD',
+>                        'STORJ-USD', 'FIL-USD', 'HOPR-USD', 'MINA-USD', 'DOT-
+>                        USD', 'BIT-USD', 'PNUT-USD', 'VARA-USD', 'STX-USD',
+>                        'SEAM-USD', 'POL-USD', 'UST-USD', 'WBTC-USD', 'EGLD-
+>                        USD', 'RNDR-USD', 'SEI-USD', 'MLN-USD', 'BNT-USD',
+>                        'ZEN-USD', 'WAMPL-USD', 'QUICK-USD', 'FIDA-USD', 'TRAC-
+>                        USD', 'COTI-USD', 'POLY-USD', 'VGX-USD', 'QSP-USD',
+>                        'QNT-USD', 'ELA-USD', 'BOND-USD', 'TNSR-USD', 'NMR-
+>                        USD', 'ORN-USD', 'IMX-USD', 'API3-USD', 'TRU-USD',
+>                        'DOGE-USD', 'WELL-USD', 'BICO-USD', 'AMP-USD', 'AAVE-
+>                        USD', 'UNI-USD', 'TRB-USD', 'OOKI-USD', 'DIA-USD',
+>                        'INDEX-USD', 'ME-USD', 'DEGEN-USD', 'LRDS-USD', 'BUSD-
+>                        USD', 'AKT-USD', 'OCEAN-USD', 'CTSI-USD', 'FLOW-USD',
+>                        'ALCX-USD', 'CGLD-USD', 'TIA-USD', 'CORECHAIN-USD',
+>                        'SUKU-USD', 'NKN-USD', 'GALA-USD', 'DESO-USD', 'AXS-
+>                        USD', 'FLOKI-USD', 'GST-USD', 'AUDIO-USD', 'YFI-USD',
+>                        'MATIC-USD', 'RPL-USD', 'BLZ-USD', 'SPA-USD', 'ARKM-
+>                        USD', 'GHST-USD', 'FARM-USD', 'GYEN-USD', 'COVAL-USD',
+>                        'OXT-USD', 'FX-USD', 'CTX-USD', 'BTC-USD', 'ZETA-USD',
+>                        'CRO-USD', 'BTRST-USD', 'ZRO-USD', 'REQ-USD', 'TRIBE-
+>                        USD', 'MULTI-USD', 'FOX-USD', 'JASMY-USD', 'GRT-USD',
+>                        'PLA-USD', 'MONA-USD', 'MPL-USD', 'RARI-USD', 'BOBA-
+>                        USD', 'DAI-USD', 'ICP-USD', 'AERO-USD', 'JTO-USD',
+>                        'XYO-USD', 'AVAX-USD', 'LDO-USD', 'LPT-USD', 'LIT-USD',
+>                        'DREP-USD', 'LQTY-USD', 'ACS-USD', 'DASH-USD', 'VTHO-
+>                        USD', 'KNC-USD', 'ADA-USD', 'XTZ-USD', 'PRIME-USD',
+>                        'T-USD', 'USDT-USD', 'MOVE-USD', 'ILV-USD', 'COW-USD',
+>                        'AERGO-USD', 'LCX-USD', 'DYP-USD', 'RONIN-USD', 'ANT-
+>                        USD', 'AGLD-USD', 'WIF-USD', 'MAGIC-USD', 'PLU-USD',
+>                        'SYLO-USD', 'ENJ-USD', 'OP-USD', 'SYN-USD', 'MTL-USD',
+>                        'INJ-USD', 'MOODENG-USD', 'PRCL-USD', 'MANA-USD', 'PRO-
+>                        USD', 'APE-USD', 'SUI-USD', 'CLV-USD', 'LTC-USD', 'VET-
+>                        USD', 'DDX-USD', 'QI-USD', 'CRPT-USD', 'VOXEL-USD',
+>                        'HIGH-USD', 'AST-USD', 'YFII-USD', 'ACX-USD', 'UPI-
+>                        USD', 'CBETH-USD', 'SAFE-USD', 'SUPER-USD', 'RAI-USD',
+>                        'SAND-USD', 'NEON-USD', 'SWFTC-USD', 'ALEPH-USD',
+>                        'BLAST-USD', 'LOOM-USD', 'PEPE-USD', 'SHDW-USD', 'ERN-
+>                        USD', 'OMNI-USD', 'MASK-USD', 'PRQ-USD', 'APT-USD',
+>                        'DEXT-USD', 'POND-USD', 'SKL-USD', 'XRP-USD', 'NEAR-
+>                        USD', 'GODS-USD', 'ABT-USD', 'SHPING-USD', 'RAD-USD',
+>                        'HFT-USD', 'MNDE-USD', 'IDEX-USD', 'AUCTION-USD', 'GMT-
+>                        USD', 'HONEY-USD', 'BLUR-USD', 'POLS-USD', 'ARPA-USD',
+>                        'RENDER-USD', 'GIGA-USD', 'ATOM-USD', 'ATA-USD', 'MUSD-
+>                        USD', 'MOBILE-USD', 'ENS-USD', 'KEEP-USD', 'TVK-USD',
+>                        'XLM-USD', 'SOL-USD', 'LSETH-USD', 'ALEO-USD', 'NEST-
+>                        USD', 'BIGTIME-USD', 'BAND-USD', 'CVX-USD', 'PYR-USD',
+>                        'A8-USD', 'ZK-USD', 'PUNDIX-USD', 'EURC-USD', 'MATH-
+>                        USD', 'GTC-USD', 'GFI-USD', 'UMA-USD', 'COMP-USD',
+>                        'BAL-USD', 'STRK-USD', 'DNT-USD', 'BADGER-USD', 'MOG-
+>                        USD', 'GLM-USD', 'ALICE-USD', 'OSMO-USD', 'XCN-USD',
+>                        'PAX-USD', 'FLR-USD', 'KAVA-USD', 'PNG-USD', 'SPELL-
+>                        USD', 'CHZ-USD', 'JUP-USD', 'GNO-USD', 'FIS-USD', 'GAL-
+>                        USD', 'REP-USD', 'AIOZ-USD', 'FORTH-USD', 'TIME-USD',
+>                        'ETH-USD', 'LOKA-USD', 'TONE-USD', 'CVC-USD', '1INCH-
+>                        USD', 'C98-USD', 'BONK-USD', 'IOTX-USD', 'SWELL-USD',
+>                        'AXL-USD', 'ZEC-USD', 'G-USD', 'ANKR-USD', 'FORT-USD',
+>                        'MEDIA-USD', 'RGT-USD', 'TRUMP-USD', 'ROSE-USD',
+>                        'AURORA-USD', 'RLY-USD', 'BCH-USD', 'RBN-USD', 'ONDO-
+>                        USD', 'KSM-USD', 'HBAR-USD', 'DRIFT-USD', 'SUSHI-USD',
+>                        'KRL-USD', 'LRC-USD', 'ALGO-USD', 'PIRATE-USD', 'ETC-
+>                        USD', 'MCO2-USD', 'ARB-USD', 'MXC-USD', 'SD-USD',
+>                        'UNFI-USD', 'RARE-USD', 'MDT-USD', 'DAR-USD', 'WLUNA-
+>                        USD', 'ACH-USD', 'EOS-USD', 'GUSD-USD', 'METIS-USD',
+>                        'STG-USD', 'MIR-USD', 'ZRX-USD', 'SNX-USD', 'OMG-USD',
+>                        '00-USD', 'PYUSD-USD', 'ORCA-USD', 'EIGEN-USD', 'MKR-
+>                        USD', 'INV-USD', 'NU-USD', 'CRV-USD', 'FET-USD', 'OGN-
+>                        USD', 'PERP-USD', 'RLC-USD', 'TURBO-USD', 'SHIB-USD',
+>                        'WAXL-USD', 'AVT-USD', 'WCFG-USD', 'BAT-USD', 'LINK-
+>                        USD'], type='csv', interval=3600, all_tokens=True,
 >                        refresh_24h=False)
 
 \*Downloads and maintains historical price data for Coinbase tokens,
