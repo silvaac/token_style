@@ -216,8 +216,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="retrieve_coinbase_price">retrieve_coinbase_price</h3>
 <blockquote class="blockquote">
 <pre><code> retrieve_coinbase_price (pair='BTC-USD', time_interval=3600,
-                          end_date='2025-01-08T15:19:28Z',
-                          start_date='2025-01-06T15:19:28Z')</code></pre>
+                          end_date='2025-01-21T11:48:20Z',
+                          start_date='2025-01-19T11:48:20Z')</code></pre>
 </blockquote>
 <p>*Retrieves historical price data from Coinbase for a given trading pair and time interval.</p>
 <p>Makes a GET request to the Coinbase candles endpoint to fetch OHLCV (Open, High, Low, Close, Volume) data for the specified trading pair and time period.</p>
@@ -279,77 +279,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="coinbase_to_file" class="level3">
 <h3 class="anchored" data-anchor-id="coinbase_to_file">coinbase_to_file</h3>
 <blockquote class="blockquote">
-<pre><code> coinbase_to_file (folder_path='../data/coinbase', token_list=['RAD-USD',
-                   'MOBILE-USD', 'SHIB-USD', 'DEGEN-USD', 'ASM-USD', 'OXT-
-                   USD', 'PERP-USD', 'DYP-USD', 'RNDR-USD', 'CLV-USD',
-                   'STX-USD', 'GIGA-USD', 'YFII-USD', 'AUCTION-USD',
-                   'VELO-USD', 'SWFTC-USD', 'POL-USD', 'CTX-USD', 'OOKI-
-                   USD', 'UNFI-USD', 'ATA-USD', 'IDEX-USD', 'XRP-USD',
-                   'COMP-USD', 'AST-USD', 'PUNDIX-USD', 'ETH-USD', 'LRDS-
-                   USD', 'USDT-USD', 'BIGTIME-USD', 'MONA-USD', 'ORN-USD',
-                   'UMA-USD', 'SHDW-USD', 'AXS-USD', 'NEON-USD', 'TNSR-
-                   USD', 'CRV-USD', 'FLOW-USD', 'BAT-USD', 'QSP-USD',
-                   'FET-USD', 'DREP-USD', 'AXL-USD', 'DESO-USD', 'DIMO-
-                   USD', 'STRK-USD', 'POLY-USD', 'AAVE-USD', 'STG-USD',
-                   'DNT-USD', 'FORT-USD', 'PEPE-USD', 'ALCX-USD', 'KNC-
-                   USD', 'TONE-USD', 'PLU-USD', 'MATIC-USD', 'ADA-USD',
-                   'SAND-USD', 'MEDIA-USD', 'REQ-USD', 'POND-USD', 'ANKR-
-                   USD', 'JUP-USD', 'QI-USD', 'COW-USD', 'WLUNA-USD',
-                   'ONDO-USD', 'PRIME-USD', 'MTL-USD', 'SNT-USD', 'FORTH-
-                   USD', 'MCO2-USD', 'IO-USD', 'DOGE-USD', 'SOL-USD',
-                   'RLC-USD', 'RARE-USD', 'KARRAT-USD', 'DASH-USD', 'REN-
-                   USD', 'HOPR-USD', 'ARB-USD', 'MANA-USD', 'JASMY-USD',
-                   'ZETA-USD', 'LTC-USD', 'EGLD-USD', 'ELA-USD', 'ARKM-
-                   USD', 'ME-USD', 'BLZ-USD', 'AMP-USD', 'PNG-USD', 'ENJ-
-                   USD', 'OGN-USD', 'ICP-USD', 'ALEO-USD', 'TRIBE-USD',
-                   'IOTX-USD', 'BAL-USD', 'FLR-USD', 'ETC-USD', 'ABT-USD',
-                   'BCH-USD', 'GLM-USD', 'WBTC-USD', 'NKN-USD', 'ANT-USD',
-                   'AGLD-USD', 'GODS-USD', 'KEEP-USD', 'LQTY-USD', 'SPA-
-                   USD', 'MOVE-USD', 'FIL-USD', 'AURORA-USD', 'SNX-USD',
-                   'AERO-USD', 'BLAST-USD', 'BADGER-USD', 'LCX-USD',
-                   'DRIFT-USD', 'MNDE-USD', 'LINK-USD', 'VARA-USD',
-                   'PIRATE-USD', 'XTZ-USD', 'SUI-USD', 'NMR-USD', 'LRC-
-                   USD', 'C98-USD', 'AKT-USD', 'VET-USD', 'INDEX-USD',
-                   'POLS-USD', 'PRCL-USD', 'ALEPH-USD', 'NEST-USD', 'ACH-
-                   USD', 'CGLD-USD', 'METIS-USD', 'TRB-USD', 'EOS-USD',
-                   'FX-USD', 'FLOKI-USD', 'LDO-USD', 'PYR-USD', 'YFI-USD',
-                   'HBAR-USD', 'GST-USD', 'API3-USD', 'MIR-USD', 'SUSHI-
-                   USD', 'LOOM-USD', 'GTC-USD', 'ZETACHAIN-USD', 'ZRO-
-                   USD', 'RGT-USD', 'CTSI-USD', 'BTC-USD', 'MUSE-USD',
-                   'DAI-USD', 'AUDIO-USD', 'INJ-USD', 'DIA-USD', 'EURC-
-                   USD', 'TRU-USD', 'BONK-USD', 'GUSD-USD', 'POWR-USD',
-                   'WELL-USD', 'FOX-USD', 'TIA-USD', 'ACX-USD', 'MINA-
-                   USD', 'VTHO-USD', 'NU-USD', 'RPL-USD', 'MOODENG-USD',
-                   'SD-USD', 'CRO-USD', 'MXC-USD', 'JTO-USD', 'BOBA-USD',
-                   'EIGEN-USD', 'COVAL-USD', 'KAVA-USD', 'MDT-USD', 'ARPA-
-                   USD', 'MULTI-USD', 'MLN-USD', 'MASK-USD', 'STORJ-USD',
-                   'ZEN-USD', 'TIME-USD', 'FIS-USD', 'BIT-USD', 'OMNI-
-                   USD', 'PYUSD-USD', 'NCT-USD', 'CRPT-USD', 'SYN-USD',
-                   'BLUR-USD', 'KSM-USD', 'BNT-USD', 'SEI-USD', 'INV-USD',
-                   'CHZ-USD', 'XYO-USD', 'REP-USD', 'ZEC-USD', 'GALA-USD',
-                   'MATH-USD', 'RONIN-USD', 'PAX-USD', 'AVAX-USD', 'BTRST-
-                   USD', 'IMX-USD', 'CVX-USD', 'SUKU-USD', 'GNO-USD',
-                   'RAI-USD', 'ENS-USD', 'SHPING-USD', 'FARM-USD', 'BUSD-
-                   USD', 'MUSD-USD', 'LIT-USD', 'GFI-USD', 'KRL-USD',
-                   'PRQ-USD', 'ATOM-USD', 'MPL-USD', 'NEAR-USD', 'AERGO-
-                   USD', 'RENDER-USD', 'MAGIC-USD', 'UNI-USD', 'QUICK-
-                   USD', 'SKL-USD', 'AIOZ-USD', 'ILV-USD', 'LOKA-USD',
-                   'ZK-USD', 'SUPER-USD', 'CBETH-USD', 'OCEAN-USD', 'WCFG-
-                   USD', 'APT-USD', 'A8-USD', 'GAL-USD', 'SYLO-USD', 'MKR-
-                   USD', 'GHST-USD', 'UPI-USD', 'TURBO-USD', 'BOND-USD',
-                   'XLM-USD', 'HIGH-USD', 'WAXL-USD', 'XCN-USD', 'DEXT-
-                   USD', 'TVK-USD', 'RLY-USD', 'OSMO-USD', '00-USD', 'GMT-
-                   USD', 'ERN-USD', 'T-USD', 'DAR-USD', 'DOT-USD', 'PLA-
-                   USD', 'HNT-USD', 'GYEN-USD', 'BICO-USD', 'AVT-USD',
-                   'SWELL-USD', 'VGX-USD', 'HFT-USD', 'CVC-USD',
-                   'CORECHAIN-USD', 'ORCA-USD', 'LSETH-USD', 'WAMPL-USD',
-                   'GRT-USD', 'ACS-USD', 'OP-USD', 'DDX-USD', 'SEAM-USD',
-                   'COTI-USD', 'RBN-USD', '1INCH-USD', 'APE-USD', 'RARI-
-                   USD', 'HONEY-USD', 'MSOL-USD', 'G-USD', 'ROSE-USD',
-                   'VOXEL-USD', 'TRAC-USD', 'SAFE-USD', 'QNT-USD', 'ZRX-
-                   USD', 'LPT-USD', 'ALICE-USD', 'BAND-USD', 'ALGO-USD',
-                   'FIDA-USD', 'UST-USD', 'CELR-USD', 'WIF-USD', 'SPELL-
-                   USD', 'PRO-USD', 'MOG-USD', 'OMG-USD'], type='csv',
+<pre><code> coinbase_to_file (folder_path='../data/coinbase', token_list=['WAMPL-
+                   USD', 'BLZ-USD', 'WAXL-USD', 'SPA-USD', 'PEPE-USD',
+                   'MCO2-USD', 'RBN-USD', 'AUCTION-USD', 'KAVA-USD', 'XTZ-
+                   USD', 'JTO-USD', 'SUI-USD', 'PRO-USD', 'AIOZ-USD',
+                   'DNT-USD', 'RENDER-USD', 'KEEP-USD', 'SYLO-USD', 'PRCL-
+                   USD', 'CHZ-USD', 'CELR-USD', 'CVC-USD', 'CTSI-USD',
+                   'C98-USD', 'MPL-USD', 'SUSHI-USD', 'DEXT-USD', 'G-USD',
+                   'FORTH-USD', 'SHDW-USD', 'ICP-USD', 'MANA-USD', 'ALGO-
+                   USD', 'POLY-USD', 'DOGE-USD', 'FIL-USD', 'JUP-USD',
+                   'MXC-USD', 'DRIFT-USD', 'PLA-USD', 'AXS-USD', 'NMR-
+                   USD', 'HIGH-USD', 'INV-USD', 'NU-USD', 'RGT-USD', 'VGX-
+                   USD', 'MOG-USD', 'BUSD-USD', 'GNO-USD', 'METIS-USD',
+                   'ELA-USD', 'HOPR-USD', 'PUNDIX-USD', 'STX-USD',
+                   'BIGTIME-USD', 'WCFG-USD', 'SNX-USD', 'LDO-USD',
+                   'MEDIA-USD', 'OSMO-USD', 'LRDS-USD', 'WIF-USD', 'MATH-
+                   USD', 'BLUR-USD', 'T-USD', 'RAD-USD', 'WBTC-USD', 'XRP-
+                   USD', 'EURC-USD', 'MIR-USD', 'MOODENG-USD', 'IMX-USD',
+                   'BICO-USD', 'RONIN-USD', 'KSM-USD', 'AUDIO-USD', 'GTC-
+                   USD', 'ALEPH-USD', 'PYR-USD', 'KRL-USD', 'BTC-USD',
+                   'DEGEN-USD', 'FET-USD', 'CRPT-USD', 'ZRO-USD', 'ORCA-
+                   USD', 'ZETA-USD', 'AVT-USD', 'MSOL-USD', 'RNDR-USD',
+                   'SWELL-USD', 'ENJ-USD', 'JASMY-USD', 'ANKR-USD', 'IDEX-
+                   USD', 'BAND-USD', 'VELO-USD', 'XLM-USD', 'UPI-USD',
+                   'ETH-USD', 'SPELL-USD', 'GST-USD', 'GALA-USD', 'OP-
+                   USD', 'PERP-USD', 'SEI-USD', 'ZEC-USD', 'INDEX-USD',
+                   'AVAX-USD', 'DASH-USD', 'AMP-USD', 'FLR-USD', 'REP-
+                   USD', 'OMG-USD', 'WELL-USD', 'LCX-USD', 'AKT-USD',
+                   'BOND-USD', 'AGLD-USD', 'ACX-USD', 'PYUSD-USD',
+                   'BADGER-USD', 'POWR-USD', 'OGN-USD', 'ARKM-USD', 'SYN-
+                   USD', 'UNFI-USD', 'LPT-USD', 'DAI-USD', 'CORECHAIN-
+                   USD', 'IO-USD', 'GRT-USD', 'YFII-USD', 'GHST-USD',
+                   'AXL-USD', 'MDT-USD', 'CLV-USD', 'TIA-USD', 'FX-USD',
+                   'ONDO-USD', 'HNT-USD', 'YFI-USD', 'MTL-USD', 'SWFTC-
+                   USD', 'MUSE-USD', 'DYP-USD', 'BCH-USD', 'ROSE-USD',
+                   'ERN-USD', 'BLAST-USD', 'ASM-USD', 'SKL-USD', 'ALEO-
+                   USD', 'LRC-USD', 'SAFE-USD', 'MINA-USD', 'APT-USD',
+                   'LQTY-USD', 'DOT-USD', 'MONA-USD', 'QNT-USD', 'CVX-
+                   USD', 'TIME-USD', 'POLS-USD', 'NKN-USD', 'POND-USD',
+                   'LOKA-USD', 'ANT-USD', 'DIA-USD', 'COVAL-USD', 'GODS-
+                   USD', 'DDX-USD', 'ADA-USD', 'HFT-USD', 'RPL-USD',
+                   'STRK-USD', 'TRB-USD', 'ATOM-USD', 'ORN-USD', 'AURORA-
+                   USD', 'EOS-USD', 'GLM-USD', 'LINK-USD', 'LTC-USD',
+                   'MOVE-USD', 'PRIME-USD', 'VET-USD', 'GIGA-USD', 'COMP-
+                   USD', 'AAVE-USD', 'BAT-USD', 'SAND-USD', 'REN-USD',
+                   'API3-USD', 'EGLD-USD', 'DIMO-USD', 'DAR-USD', 'SHPING-
+                   USD', 'MASK-USD', 'TVK-USD', 'DREP-USD', 'MLN-USD',
+                   'MOBILE-USD', 'MAGIC-USD', 'OMNI-USD', 'COW-USD',
+                   'ZETACHAIN-USD', 'XCN-USD', 'CTX-USD', 'FARM-USD',
+                   'DESO-USD', 'ZEN-USD', 'XYO-USD', 'CBETH-USD', 'SUPER-
+                   USD', 'BAL-USD', 'APE-USD', 'NEST-USD', 'AERGO-USD',
+                   'ALICE-USD', 'ACH-USD', 'AERO-USD', 'NEAR-USD', 'ATA-
+                   USD', 'IOTX-USD', 'BONK-USD', 'SD-USD', 'NEON-USD',
+                   'RLC-USD', 'GAL-USD', 'MATIC-USD', 'PNUT-USD', 'GMT-
+                   USD', 'PLU-USD', 'TRU-USD', 'GFI-USD', 'TRUMP-USD',
+                   'A8-USD', '1INCH-USD', 'QUICK-USD', 'AST-USD', 'ETC-
+                   USD', 'PAX-USD', 'ILV-USD', 'TRIBE-USD', 'MULTI-USD',
+                   'LSETH-USD', 'WLUNA-USD', 'NCT-USD', 'FLOKI-USD',
+                   'FORT-USD', 'OCEAN-USD', 'RLY-USD', 'PNG-USD', 'REQ-
+                   USD', 'TONE-USD', 'PIRATE-USD', 'INJ-USD', '00-USD',
+                   'ACS-USD', 'RARI-USD', 'CRO-USD', 'ZRX-USD', 'GUSD-
+                   USD', 'TNSR-USD', 'BNT-USD', 'BTRST-USD', 'ENS-USD',
+                   'UST-USD', 'OOKI-USD', 'BOBA-USD', 'RAI-USD', 'FIDA-
+                   USD', 'TRAC-USD', 'MKR-USD', 'RARE-USD', 'BIT-USD',
+                   'FIS-USD', 'ARB-USD', 'KNC-USD', 'HBAR-USD', 'PRQ-USD',
+                   'SNT-USD', 'SOL-USD', 'QI-USD', 'CRV-USD', 'ME-USD',
+                   'LOOM-USD', 'ARPA-USD', 'OXT-USD', 'CGLD-USD', 'USDT-
+                   USD', 'ABT-USD', 'KARRAT-USD', 'ALCX-USD', 'QSP-USD',
+                   'STG-USD', 'UMA-USD', 'POL-USD', 'FOX-USD', 'COTI-USD',
+                   'SUKU-USD', 'SHIB-USD', 'VTHO-USD', 'TURBO-USD', 'UNI-
+                   USD', 'ZK-USD', 'LIT-USD', 'STORJ-USD', 'EIGEN-USD',
+                   'SEAM-USD', 'HONEY-USD', 'GYEN-USD', 'VARA-USD', 'FLOW-
+                   USD', 'MNDE-USD', 'MUSD-USD', 'VOXEL-USD'], type='csv',
                    interval=3600, all_tokens=True, refresh_24h=False)</code></pre>
 </blockquote>
 <p>*Downloads and maintains historical price data for Coinbase tokens, saving to files.</p>
@@ -361,16 +362,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="coinbase_data_update" class="level3">
 <h3 class="anchored" data-anchor-id="coinbase_data_update">coinbase_data_update</h3>
 <blockquote class="blockquote">
-<pre><code> coinbase_data_update (folder_path='../data/coinbase', token_list=['AAVE-
-                       USD'], type='parquet', interval=3600,
-                       refresh_24h=True)</code></pre>
+<pre><code> coinbase_data_update (folder_path='../data/coinbase', token='AAVE-USD',
+                       type='parquet', interval=3600, refresh_24h=True)</code></pre>
 </blockquote>
 <p>*Downloads new historical price data for Coinbase tokens… no saving</p>
-<p>Args: folder_path (str): Path where token data files will be stored. Defaults to “../data/coinbase” token_list (list): List of token IDs to process type (str): File format to save data - either “csv” or “parquet”. Defaults to “parquet” interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour) refresh_24h (bool): If True, replaces at least 24 hours. Defaults to True</p>
+<p>Args: folder_path (str): Path where token data files will be stored. Defaults to “../data/coinbase” token (str): token IDs to process type (str): File format to save data - either “csv” or “parquet”. Defaults to “parquet” interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour) refresh_24h (bool): If True, replaces at least 24 hours. Defaults to True</p>
 <p>Returns: df (pandas.DataFrame): DataFrame of historical price data</p>
 <p>The function: - Date/Time is UTC - For each token, checks if data file exists: - If exists: Loads file and appends any new data since last recorded date - If not exists: Downloads full history starting from 2016 - For hourly data (interval=3600), aligns to hour boundaries*</p>
 <hr>
-<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L335" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L334" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
 <section id="read_all_files" class="level3">
 <h3 class="anchored" data-anchor-id="read_all_files">read_all_files</h3>
@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Returns: pandas.DataFrame: Combined DataFrame containing data from all files in the folder.</p>
 <p>Raises: ValueError: If file type is not supported (must be “csv” or “parquet”).*</p>
 <hr>
-<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L363" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L362" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
 <section id="coinbase_price_last_day" class="level3">
 <h3 class="anchored" data-anchor-id="coinbase_price_last_day">coinbase_price_last_day</h3>
@@ -393,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Args: pair (str): Coinbase token pair, e.g., “BTC-USD”. Defaults to “BTC-USD”.</p>
 <p>Returns: pandas dataframe: Last 24 hours price data.*</p>
 <hr>
-<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L382" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/silvaac/token_style/blob/main/token_style/coinbase.py#L381" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
 <section id="binance_format" class="level3">
 <h3 class="anchored" data-anchor-id="binance_format">binance_format</h3>
@@ -417,59 +417,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> coinbase_tokens()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tokens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              id base_currency quote_currency quote_increment base_increment  \
-0     BADGER-USD        BADGER            USD            0.01          0.001   
-1       STX-USDT           STX           USDT          0.0001           0.01   
-2      MASK-USDT          MASK           USDT            0.01           0.01   
-3      METIS-USD         METIS            USD            0.01          0.001   
-4       MATH-USD          MATH            USD          0.0001            0.1   
-..           ...           ...            ...             ...            ...   
-651     BUSD-USD          BUSD            USD           0.001           0.01   
-652  MOODENG-USD       MOODENG            USD          0.0001           0.01   
-653     ATOM-GBP          ATOM            GBP           0.001          0.001   
-654      MIR-GBP           MIR            GBP           0.001           0.01   
-655      CHZ-GBP           CHZ            GBP          0.0001            0.1   
+<pre><code>            id base_currency quote_currency quote_increment base_increment  \
+0      APE-EUR           APE            EUR           0.001           0.01   
+1      MKR-USD           MKR            USD            0.01       0.000001   
+2      XLM-BTC           XLM            BTC      0.00000001              1   
+3     USDC-GBP          USDC            GBP          0.0001           0.01   
+4    ARPA-USDT          ARPA           USDT          0.0001            0.1   
+..         ...           ...            ...             ...            ...   
+653    ICP-EUR           ICP            EUR           0.001         0.0001   
+654  EURC-USDC          EURC           USDC          0.0001              1   
+655    LRC-BTC           LRC            BTC      0.00000001              1   
+656   VARA-USD          VARA            USD         0.00001              1   
+657   DIA-USDT           DIA           USDT         0.00001           0.01   
 
     display_name min_market_funds  margin_enabled  post_only  limit_only  \
-0     BADGER-USD                1           False      False       False   
-1       STX-USDT                1           False      False       False   
-2      MASK-USDT                1           False      False       False   
-3      METIS-USD                1           False      False       False   
-4       MATH-USD                1           False      False       False   
+0        APE-EUR                1           False      False       False   
+1        MKR-USD                1           False      False       False   
+2        XLM-BTC         0.000016           False      False       False   
+3       USDC-GBP             0.72           False      False        True   
+4      ARPA-USDT                1           False      False       False   
 ..           ...              ...             ...        ...         ...   
-651     BUSD-USD                1           False      False       False   
-652  MOODENG/USD                1           False      False       False   
-653     ATOM-GBP             0.72           False      False       False   
-654      MIR-GBP             0.72           False      False       False   
-655      CHZ-GBP             0.72           False      False       False   
+653      ICP-EUR             0.84           False      False       False   
+654    EURC/USDC                1           False      False        True   
+655      LRC-BTC         0.000016           False      False       False   
+656     VARA-USD                1           False      False       False   
+657     DIA-USDT                1           False      False       False   
 
      cancel_only    status status_message  trading_disabled  fx_stablecoin  \
 0          False    online                            False          False   
 1          False    online                            False          False   
 2          False    online                            False          False   
-3          False    online                            False          False   
-4          False    online                            False          False   
+3          False    online                            False           True   
+4          False  delisted                             True          False   
 ..           ...       ...            ...               ...            ...   
-651        False  delisted                             True           True   
-652        False    online                            False          False   
 653        False    online                            False          False   
-654        False  delisted                             True          False   
+654        False    online                            False           True   
 655        False    online                            False          False   
+656        False    online                            False          False   
+657        False  delisted                             True          False   
 
     max_slippage_percentage  auction_mode high_bid_limit_percentage  
 0                0.03000000         False                            
 1                0.03000000         False                            
-2                0.05000000         False                            
-3                0.03000000         False                            
+2                0.03000000         False                            
+3                0.01000000         False                0.03000000  
 4                0.03000000         False                            
 ..                      ...           ...                       ...  
-651              0.01000000         False                0.03000000  
-652              0.03000000         False                            
 653              0.03000000         False                            
-654              0.03000000         False                            
+654              0.01000000         False                0.03000000  
 655              0.03000000         False                            
+656              0.03000000         False                            
+657              0.03000000         False                            
 
-[656 rows x 18 columns]</code></pre>
+[658 rows x 18 columns]</code></pre>
 </div>
 </div>
 <p>To make it simpler, we can filter the tokens by the quote currency. In this case, we filter for USD.</p>
@@ -477,59 +477,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>usd_tokens <span class="op">=</span> coinbase_usd_tokens()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(usd_tokens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              id base_currency quote_currency quote_increment base_increment  \
-0     BADGER-USD        BADGER            USD            0.01          0.001   
-3      METIS-USD         METIS            USD            0.01          0.001   
-4       MATH-USD          MATH            USD          0.0001            0.1   
-6       FLOW-USD          FLOW            USD           0.001          0.001   
-10       GRT-USD           GRT            USD          0.0001           0.01   
-..           ...           ...            ...             ...            ...   
-644     BLUR-USD          BLUR            USD          0.0001            0.1   
-646      NCT-USD           NCT            USD         0.00001              1   
-648      JTO-USD           JTO            USD          0.0001            0.1   
-651     BUSD-USD          BUSD            USD           0.001           0.01   
-652  MOODENG-USD       MOODENG            USD          0.0001           0.01   
+<pre><code>             id base_currency quote_currency quote_increment base_increment  \
+1       MKR-USD           MKR            USD            0.01       0.000001   
+7      OSMO-USD          OSMO            USD          0.0001           0.01   
+8       HNT-USD           HNT            USD           0.001           0.01   
+9       RAI-USD           RAI            USD            0.01           0.01   
+10      VET-USD           VET            USD         0.00001              1   
+..          ...           ...            ...             ...            ...   
+647     OGN-USD           OGN            USD         0.00001           0.01   
+649      OP-USD            OP            USD           0.001           0.01   
+650  BADGER-USD        BADGER            USD            0.01          0.001   
+651    PEPE-USD          PEPE            USD      0.00000001              1   
+656    VARA-USD          VARA            USD         0.00001              1   
 
     display_name min_market_funds  margin_enabled  post_only  limit_only  \
-0     BADGER-USD                1           False      False       False   
-3      METIS-USD                1           False      False       False   
-4       MATH-USD                1           False      False       False   
-6       FLOW-USD                1           False      False       False   
-10       GRT-USD                1           False      False       False   
+1        MKR-USD                1           False      False       False   
+7       OSMO-USD                1           False      False       False   
+8        HNT-USD                1           False      False       False   
+9        RAI-USD                1           False      False       False   
+10       VET-USD                1           False      False       False   
 ..           ...              ...             ...        ...         ...   
-644     BLUR-USD                1           False      False       False   
-646      NCT-USD                1           False      False       False   
-648      JTO-USD                1           False      False       False   
-651     BUSD-USD                1           False      False       False   
-652  MOODENG/USD                1           False      False       False   
+647      OGN-USD                1           False      False       False   
+649       OP-USD                1           False      False       False   
+650   BADGER-USD                1           False      False       False   
+651     PEPE/USD                1           False      False       False   
+656     VARA-USD                1           False      False       False   
 
      cancel_only    status status_message  trading_disabled  fx_stablecoin  \
-0          False    online                            False          False   
-3          False    online                            False          False   
-4          False    online                            False          False   
-6          False    online                            False          False   
+1          False    online                            False          False   
+7          False    online                            False          False   
+8          False    online                            False          False   
+9          False  delisted                             True          False   
 10         False    online                            False          False   
 ..           ...       ...            ...               ...            ...   
-644        False    online                            False          False   
-646        False    online                            False          False   
-648        False    online                            False          False   
-651        False  delisted                             True           True   
-652        False    online                            False          False   
+647        False    online                            False          False   
+649        False    online                            False          False   
+650        False    online                            False          False   
+651        False    online                            False          False   
+656        False    online                            False          False   
 
     max_slippage_percentage  auction_mode high_bid_limit_percentage  
-0                0.03000000         False                            
-3                0.03000000         False                            
-4                0.03000000         False                            
-6                0.03000000         False                            
+1                0.03000000         False                            
+7                0.03000000         False                            
+8                0.03000000         False                            
+9                0.03000000         False                            
 10               0.03000000         False                            
 ..                      ...           ...                       ...  
-644              0.03000000         False                            
-646              0.03000000         False                            
-648              0.03000000         False                            
-651              0.01000000         False                0.03000000  
-652              0.03000000         False                            
+647              0.03000000         False                            
+649              0.03000000         False                            
+650              0.03000000         False                            
+651              0.03000000         False                            
+656              0.03000000         False                            
 
-[317 rows x 18 columns]</code></pre>
+[319 rows x 18 columns]</code></pre>
 </div>
 </div>
 </section>
@@ -580,18 +580,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"../data/coinbase/AAVE-USD.parquet"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                 datetime      low     high     open    close     volume  \
-0     2020-12-15 17:00:00   87.700   90.400   90.400   88.347   4289.548   
-1     2020-12-15 18:00:00   85.620   88.407   88.010   86.000   3802.529   
-2     2020-12-15 19:00:00   84.575   89.500   86.105   85.952   2835.124   
-3     2020-12-15 20:00:00   84.828   85.952   85.952   85.599    798.670   
-4     2020-12-15 21:00:00   84.744   85.893   85.599   85.208    442.464   
-...                   ...      ...      ...      ...      ...        ...   
-35634 2025-01-08 16:00:00  287.740  293.660  293.580  288.160   3457.940   
-35635 2025-01-08 17:00:00  275.570  289.170  288.110  285.080  14845.196   
-35636 2025-01-08 18:00:00  283.350  292.070  285.000  285.850   3771.564   
-35637 2025-01-08 19:00:00  284.590  295.610  286.000  292.540   6487.037   
-35638 2025-01-08 20:00:00  290.140  292.890  292.580  290.160    387.139   
+<pre><code>                 datetime      low     high     open    close    volume  \
+0     2020-12-15 17:00:00   87.700   90.400   90.400   88.347  4289.548   
+1     2020-12-15 18:00:00   85.620   88.407   88.010   86.000  3802.529   
+2     2020-12-15 19:00:00   84.575   89.500   86.105   85.952  2835.124   
+3     2020-12-15 20:00:00   84.828   85.952   85.952   85.599   798.670   
+4     2020-12-15 21:00:00   84.744   85.893   85.599   85.208   442.464   
+...                   ...      ...      ...      ...      ...       ...   
+35942 2025-01-21 12:00:00  357.540  371.480  362.100  366.670  8248.061   
+35943 2025-01-21 13:00:00  359.410  367.930  366.650  365.500  6770.685   
+35944 2025-01-21 14:00:00  358.290  366.990  365.610  359.610  5676.846   
+35945 2025-01-21 15:00:00  354.590  362.880  359.510  357.290  5677.313   
+35946 2025-01-21 16:00:00  354.870  362.290  357.310  357.700  4360.988   
 
            pair  
 0      AAVE-USD  
@@ -600,13 +600,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3      AAVE-USD  
 4      AAVE-USD  
 ...         ...  
-35634  AAVE-USD  
-35635  AAVE-USD  
-35636  AAVE-USD  
-35637  AAVE-USD  
-35638  AAVE-USD  
+35942  AAVE-USD  
+35943  AAVE-USD  
+35944  AAVE-USD  
+35945  AAVE-USD  
+35946  AAVE-USD  
 
-[35639 rows x 7 columns]</code></pre>
+[35947 rows x 7 columns]</code></pre>
 </div>
 </div>
 <p>Read all files in the folder into a single dataframe:</p>
@@ -621,11 +621,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3     2022-10-11 20:00:00  1.140000  1.382000  1.292100  1.331900   
 4     2022-10-11 21:00:00  1.268600  1.649800  1.331900  1.546400   
 ...                   ...       ...       ...       ...       ...   
-54703 2025-01-08 16:00:00  0.474674  0.486000  0.476924  0.474674   
-54704 2025-01-08 17:00:00  0.462158  0.483032  0.477000  0.482772   
-54705 2025-01-08 18:00:00  0.482728  0.499450  0.483302  0.490197   
-54706 2025-01-08 19:00:00  0.488000  0.497000  0.491379  0.495499   
-54707 2025-01-08 20:00:00  0.495034  0.498653  0.495034  0.498653   
+55011 2025-01-21 12:00:00  0.464885  0.474850  0.468067  0.471385   
+55012 2025-01-21 13:00:00  0.465000  0.473298  0.471186  0.468332   
+55013 2025-01-21 14:00:00  0.461907  0.473863  0.468567  0.463435   
+55014 2025-01-21 15:00:00  0.460000  0.467998  0.464733  0.466155   
+55015 2025-01-21 16:00:00  0.466431  0.478793  0.466431  0.474741   
 
              volume     pair  
 0      2.214310e+05   00-USD  
@@ -634,13 +634,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3      6.753579e+05   00-USD  
 4      8.359198e+05   00-USD  
 ...             ...      ...  
-54703  1.061651e+05  ZRX-USD  
-54704  1.756147e+05  ZRX-USD  
-54705  1.852007e+05  ZRX-USD  
-54706  1.024419e+05  ZRX-USD  
-54707  3.496561e+03  ZRX-USD  
+55011  2.552343e+05  ZRX-USD  
+55012  3.205124e+04  ZRX-USD  
+55013  4.986324e+04  ZRX-USD  
+55014  5.256622e+04  ZRX-USD  
+55015  6.143745e+04  ZRX-USD  
 
-[6840583 rows x 7 columns]</code></pre>
+[6922279 rows x 7 columns]</code></pre>
 </div>
 </div>
 <p>Download the last day’s price for AAVE-USD:</p>
@@ -667,242 +667,242 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">23</td>
-<td>2025-01-07 21:00:00</td>
-<td>306.56</td>
-<td>311.82</td>
-<td>309.11</td>
-<td>306.56</td>
-<td>1740.036</td>
+<td>2025-01-20 17:00:00</td>
+<td>318.38</td>
+<td>351.19</td>
+<td>350.77</td>
+<td>332.04</td>
+<td>17009.535</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">22</td>
-<td>2025-01-07 22:00:00</td>
-<td>305.27</td>
-<td>309.60</td>
-<td>306.54</td>
-<td>308.92</td>
-<td>1125.992</td>
+<td>2025-01-20 18:00:00</td>
+<td>330.13</td>
+<td>363.00</td>
+<td>332.06</td>
+<td>348.50</td>
+<td>14342.571</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">21</td>
-<td>2025-01-07 23:00:00</td>
-<td>306.26</td>
-<td>309.12</td>
-<td>308.67</td>
-<td>306.86</td>
-<td>1695.001</td>
+<td>2025-01-20 19:00:00</td>
+<td>345.07</td>
+<td>364.16</td>
+<td>348.41</td>
+<td>354.96</td>
+<td>16268.851</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">20</td>
-<td>2025-01-08 00:00:00</td>
-<td>306.35</td>
-<td>312.50</td>
-<td>306.84</td>
-<td>311.26</td>
-<td>2310.368</td>
+<td>2025-01-20 20:00:00</td>
+<td>348.00</td>
+<td>355.80</td>
+<td>354.95</td>
+<td>348.55</td>
+<td>5404.532</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">19</td>
-<td>2025-01-08 01:00:00</td>
-<td>305.95</td>
-<td>311.26</td>
-<td>311.22</td>
-<td>308.17</td>
-<td>1416.847</td>
+<td>2025-01-20 21:00:00</td>
+<td>340.42</td>
+<td>352.36</td>
+<td>348.39</td>
+<td>341.27</td>
+<td>5889.728</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">18</td>
-<td>2025-01-08 02:00:00</td>
-<td>305.73</td>
-<td>308.94</td>
-<td>308.15</td>
-<td>305.78</td>
-<td>1858.829</td>
+<td>2025-01-20 22:00:00</td>
+<td>337.83</td>
+<td>348.73</td>
+<td>341.27</td>
+<td>348.57</td>
+<td>3904.477</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">17</td>
-<td>2025-01-08 03:00:00</td>
-<td>301.10</td>
-<td>306.64</td>
-<td>305.78</td>
-<td>302.33</td>
-<td>6215.529</td>
+<td>2025-01-20 23:00:00</td>
+<td>334.91</td>
+<td>348.98</td>
+<td>348.65</td>
+<td>337.09</td>
+<td>9045.903</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">16</td>
-<td>2025-01-08 04:00:00</td>
-<td>300.09</td>
-<td>304.24</td>
-<td>302.38</td>
-<td>300.76</td>
-<td>6087.466</td>
+<td>2025-01-21 00:00:00</td>
+<td>327.27</td>
+<td>339.04</td>
+<td>337.07</td>
+<td>327.87</td>
+<td>9903.319</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">15</td>
-<td>2025-01-08 05:00:00</td>
-<td>299.01</td>
-<td>302.47</td>
-<td>300.83</td>
-<td>299.47</td>
-<td>3269.227</td>
+<td>2025-01-21 01:00:00</td>
+<td>327.23</td>
+<td>339.84</td>
+<td>327.96</td>
+<td>337.34</td>
+<td>47457.843</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">14</td>
-<td>2025-01-08 06:00:00</td>
-<td>292.00</td>
-<td>301.32</td>
-<td>299.51</td>
-<td>292.03</td>
-<td>4360.066</td>
+<td>2025-01-21 02:00:00</td>
+<td>337.00</td>
+<td>350.57</td>
+<td>337.21</td>
+<td>346.02</td>
+<td>23115.761</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">13</td>
-<td>2025-01-08 07:00:00</td>
-<td>291.91</td>
-<td>299.10</td>
-<td>291.96</td>
-<td>298.59</td>
-<td>1640.367</td>
+<td>2025-01-21 03:00:00</td>
+<td>340.55</td>
+<td>347.55</td>
+<td>345.93</td>
+<td>345.53</td>
+<td>5440.116</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">12</td>
-<td>2025-01-08 08:00:00</td>
-<td>298.27</td>
-<td>302.30</td>
-<td>298.47</td>
-<td>299.74</td>
-<td>1300.077</td>
+<td>2025-01-21 04:00:00</td>
+<td>332.82</td>
+<td>345.80</td>
+<td>345.80</td>
+<td>340.28</td>
+<td>4284.122</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">11</td>
-<td>2025-01-08 09:00:00</td>
-<td>296.46</td>
-<td>299.81</td>
-<td>299.61</td>
-<td>296.64</td>
-<td>1083.719</td>
+<td>2025-01-21 05:00:00</td>
+<td>332.54</td>
+<td>341.14</td>
+<td>340.24</td>
+<td>336.69</td>
+<td>3109.911</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">10</td>
-<td>2025-01-08 10:00:00</td>
-<td>296.72</td>
-<td>299.76</td>
-<td>296.73</td>
-<td>298.80</td>
-<td>1035.895</td>
+<td>2025-01-21 06:00:00</td>
+<td>334.67</td>
+<td>344.57</td>
+<td>336.69</td>
+<td>342.67</td>
+<td>4486.771</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">9</td>
-<td>2025-01-08 11:00:00</td>
-<td>294.19</td>
-<td>299.05</td>
-<td>298.88</td>
-<td>295.38</td>
-<td>3160.681</td>
+<td>2025-01-21 07:00:00</td>
+<td>339.26</td>
+<td>344.16</td>
+<td>342.49</td>
+<td>341.09</td>
+<td>3260.287</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">8</td>
-<td>2025-01-08 12:00:00</td>
-<td>293.53</td>
-<td>297.75</td>
-<td>295.53</td>
-<td>293.75</td>
-<td>1296.402</td>
+<td>2025-01-21 08:00:00</td>
+<td>337.90</td>
+<td>344.62</td>
+<td>341.05</td>
+<td>343.19</td>
+<td>3464.737</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">7</td>
-<td>2025-01-08 13:00:00</td>
-<td>293.84</td>
-<td>297.43</td>
-<td>293.84</td>
-<td>294.08</td>
-<td>2476.275</td>
+<td>2025-01-21 09:00:00</td>
+<td>342.07</td>
+<td>355.21</td>
+<td>342.78</td>
+<td>355.21</td>
+<td>7129.535</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">6</td>
-<td>2025-01-08 14:00:00</td>
-<td>293.95</td>
-<td>298.23</td>
-<td>294.05</td>
-<td>296.67</td>
-<td>1422.807</td>
+<td>2025-01-21 10:00:00</td>
+<td>349.29</td>
+<td>369.55</td>
+<td>354.95</td>
+<td>365.87</td>
+<td>15192.819</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">5</td>
-<td>2025-01-08 15:00:00</td>
-<td>291.72</td>
-<td>299.07</td>
-<td>296.47</td>
-<td>293.62</td>
-<td>3518.873</td>
+<td>2025-01-21 11:00:00</td>
+<td>357.10</td>
+<td>369.21</td>
+<td>365.93</td>
+<td>362.00</td>
+<td>6683.760</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">4</td>
-<td>2025-01-08 16:00:00</td>
-<td>287.74</td>
-<td>293.66</td>
-<td>293.58</td>
-<td>288.16</td>
-<td>3457.940</td>
+<td>2025-01-21 12:00:00</td>
+<td>357.54</td>
+<td>371.48</td>
+<td>362.10</td>
+<td>366.67</td>
+<td>8248.061</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">3</td>
-<td>2025-01-08 17:00:00</td>
-<td>275.57</td>
-<td>289.17</td>
-<td>288.11</td>
-<td>285.08</td>
-<td>14845.196</td>
+<td>2025-01-21 13:00:00</td>
+<td>359.41</td>
+<td>367.93</td>
+<td>366.65</td>
+<td>365.50</td>
+<td>6770.685</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2</td>
-<td>2025-01-08 18:00:00</td>
-<td>283.35</td>
-<td>292.07</td>
-<td>285.00</td>
-<td>285.85</td>
-<td>3771.564</td>
+<td>2025-01-21 14:00:00</td>
+<td>358.29</td>
+<td>366.99</td>
+<td>365.61</td>
+<td>359.61</td>
+<td>5676.846</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">1</td>
-<td>2025-01-08 19:00:00</td>
-<td>284.59</td>
-<td>295.61</td>
-<td>286.00</td>
-<td>292.54</td>
-<td>6487.037</td>
+<td>2025-01-21 15:00:00</td>
+<td>354.59</td>
+<td>362.88</td>
+<td>359.51</td>
+<td>357.29</td>
+<td>5677.313</td>
 <td>AAVE-USD</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">0</td>
-<td>2025-01-08 20:00:00</td>
-<td>289.44</td>
-<td>292.89</td>
-<td>292.58</td>
-<td>291.69</td>
-<td>837.063</td>
+<td>2025-01-21 16:00:00</td>
+<td>354.87</td>
+<td>362.29</td>
+<td>357.31</td>
+<td>358.40</td>
+<td>4514.212</td>
 <td>AAVE-USD</td>
 </tr>
 </tbody>
@@ -913,23 +913,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Update the data for AAVE-USD and convert it to Binance format (minor changes in column names and sequence):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> coinbase_data_update(token_list<span class="op">=</span>[<span class="st">'BTC-USD'</span>])</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> coinbase_data_update(token<span class="op">=</span><span class="st">'BTC-USD'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>binance_df <span class="op">=</span> binance_format(df)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(binance_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Processing BTC-USD
-                           date      Open      High       Low     Close  \
-0     2016-01-01 00:00:00+00:00    430.35    431.82    430.35    430.61   
-1     2016-01-01 01:00:00+00:00    430.59    430.98    430.00    430.78   
-2     2016-01-01 02:00:00+00:00    430.80    430.89    430.50    430.62   
-3     2016-01-01 03:00:00+00:00    430.62    432.84    430.31    432.84   
-4     2016-01-01 04:00:00+00:00    432.74    437.15    432.72    436.12   
-...                         ...       ...       ...       ...       ...   
-79050 2025-01-08 16:00:00+00:00  95462.47  95469.88  94503.33  94740.36   
-79051 2025-01-08 17:00:00+00:00  94740.35  94818.92  92500.00  94007.23   
-79052 2025-01-08 18:00:00+00:00  94000.00  95122.22  93724.25  94231.24   
-79053 2025-01-08 19:00:00+00:00  94223.92  94830.75  94009.81  94213.57   
-79054 2025-01-08 20:00:00+00:00  94213.57  94379.54  93713.54  93929.24   
+                           date       Open       High        Low      Close  \
+0     2016-01-01 00:00:00+00:00     430.35     431.82     430.35     430.61   
+1     2016-01-01 01:00:00+00:00     430.59     430.98     430.00     430.78   
+2     2016-01-01 02:00:00+00:00     430.80     430.89     430.50     430.62   
+3     2016-01-01 03:00:00+00:00     430.62     432.84     430.31     432.84   
+4     2016-01-01 04:00:00+00:00     432.74     437.15     432.72     436.12   
+...                         ...        ...        ...        ...        ...   
+79358 2025-01-21 12:00:00+00:00  103651.97  104631.99  103500.01  104405.22   
+79359 2025-01-21 13:00:00+00:00  104426.42  104894.98  104055.31  104370.76   
+79360 2025-01-21 14:00:00+00:00  104363.83  105236.04  102900.00  103178.25   
+79361 2025-01-21 15:00:00+00:00  103168.01  104016.75  102688.00  103854.59   
+79362 2025-01-21 16:00:00+00:00  103860.03  106500.00  103729.79  105195.47   
 
             Volume pair  
 0       160.179593  btc  
@@ -938,13 +938,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3       103.811532  btc  
 4       363.875951  btc  
 ...            ...  ...  
-79050   832.014376  btc  
-79051  1858.784049  btc  
-79052  1166.303885  btc  
-79053   841.092918  btc  
-79054   445.560363  btc  
+79358   490.800848  btc  
+79359   483.549109  btc  
+79360  1192.881482  btc  
+79361   968.173608  btc  
+79362  2133.184076  btc  
 
-[79055 rows x 7 columns]</code></pre>
+[79363 rows x 7 columns]</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> coinbase_data_update(token <span class="op">=</span> <span class="st">'BTC-USD'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>binance_df1 <span class="op">=</span> binance_format(df)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> coinbase_data_update(token <span class="op">=</span> <span class="st">'ETH-USD'</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>binance_df2 <span class="op">=</span> binance_format(df)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>dh <span class="op">=</span> pd.concat([binance_df1, binance_df2])</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#dh.to_feather("coinHist.fdr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing BTC-USD
+Processing ETH-USD</code></pre>
 </div>
 </div>
 

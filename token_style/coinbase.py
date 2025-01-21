@@ -266,14 +266,14 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
             save_file(df,folder_path,token,type)
 
 # %% ../nbs/coinbase.ipynb 10
-def coinbase_data_update(folder_path="../data/coinbase",token_list=['AAVE-USD'],type="parquet",
+def coinbase_data_update(folder_path="../data/coinbase",token='AAVE-USD',type="parquet",
                      interval=3600,refresh_24h=True):
     """
     Downloads new historical price data for Coinbase tokens... no saving
     
     Args:
         folder_path (str): Path where token data files will be stored. Defaults to "../data/coinbase"
-        token_list (list): List of token IDs to process
+        token (str): token IDs to process
         type (str): File format to save data - either "csv" or "parquet". Defaults to "parquet"
         interval (int): Time interval in seconds between price points. Defaults to 3600 (1 hour)
         refresh_24h (bool): If True, replaces at least 24 hours. Defaults to True
@@ -291,41 +291,40 @@ def coinbase_data_update(folder_path="../data/coinbase",token_list=['AAVE-USD'],
     
     if not os.path.exists(folder_path):
         raise FileNotFoundError(f"Folder {folder_path} does not exist")
-    # loop over the token list and open the file if it exists and append the new data
-    for token in token_list:
-        print(f"Processing {token}")
-        file_name = f"{folder_path}/{token}.{type}"
-        if os.path.exists(file_name):
-            if type == "csv":
-                df = pd.read_csv(file_name)
-            elif type == "parquet":
-                df = pd.read_parquet(file_name)
-            else:
-                raise ValueError(f"Type {type} not supported")
-            # read last date in the file
-            last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
-            if interval == 3600:
-                today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
-            else:
-                today = datetime.now(tz=dt.UTC)
-            #print(last_date.tz_localize(dt.UTC),today)
-            first_date = today - dt.timedelta(hours=24)
-            if first_date < last_date and refresh_24h:
+    
+    print(f"Processing {token}")
+    file_name = f"{folder_path}/{token}.{type}"
+    if os.path.exists(file_name):
+        if type == "csv":
+            df = pd.read_csv(file_name)
+        elif type == "parquet":
+            df = pd.read_parquet(file_name)
+        else:
+            raise ValueError(f"Type {type} not supported")
+        # read last date in the file
+        last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
+        if interval == 3600:
+            today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
+        else:
+            today = datetime.now(tz=dt.UTC)
+        #print(last_date.tz_localize(dt.UTC),today)
+        first_date = today - dt.timedelta(hours=24)
+        if first_date < last_date and refresh_24h:
                 t_date = pd.to_datetime(df['datetime'],utc=True)
                 df = df[t_date < first_date]
                 last_date = first_date
-            if last_date < today:
-                df_new = coinbase_price_history(pair=token,
+        if last_date < today:
+            df_new = coinbase_price_history(pair=token,
                                             start_date=last_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                                             end_date=today.strftime('%Y-%m-%dT%H:%M:%SZ'),
                                             time_interval=interval)
-                df = pd.concat([df,df_new])
+            df = pd.concat([df,df_new])
                 # drop duplicates and sort by date
-                df = df.drop_duplicates(subset='datetime').sort_values(by='datetime').reset_index(drop=True)
-            else:
-                print(f"File {token} is up to date")
+            df = df.drop_duplicates(subset='datetime').sort_values(by='datetime').reset_index(drop=True)
         else:
-            df = coinbase_price_history(pair=token,
+            print(f"File {token} is up to date")
+    else:
+        df = coinbase_price_history(pair=token,
                                         start_date='2016-01-01T00:00:00Z',
                                         end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
                                         time_interval=interval)
