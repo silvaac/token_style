@@ -237,10 +237,7 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
                 raise ValueError(f"Type {type} not supported")
             # read last date in the file
             last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
-            if interval == 3600:
-                today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
-            else:
-                today = datetime.now(tz=dt.UTC)
+            today = datetime.now(tz=dt.UTC)
             #print(last_date.tz_localize(dt.UTC),today)
             first_date = today - dt.timedelta(hours=24)
             if first_date < last_date and refresh_24h:
@@ -248,22 +245,30 @@ def coinbase_to_file(folder_path="../data/coinbase",token_list=coinbase_usd_toke
                 df = df[t_date < first_date]
                 last_date = first_date
             if last_date < today:
-                df_new = coinbase_price_history(pair=token,
-                                            start_date=last_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                                            end_date=today.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                                            time_interval=interval)
-                df = pd.concat([df,df_new])
-                # drop duplicates and sort by date
-                df = df.drop_duplicates(subset='datetime').sort_values(by='datetime').reset_index(drop=True)
-                save_file(df,folder_path,token,type)
+                try:
+                    df_new = coinbase_price_history(pair=token,
+                                                start_date=last_date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                                end_date=today.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                                time_interval=interval)
+                    df = pd.concat([df,df_new])
+                    # drop duplicates and sort by date
+                    df = df.drop_duplicates(subset='datetime').sort_values(by='datetime').reset_index(drop=True)
+                    if not df.empty:
+                        save_file(df,folder_path,token,type)
+                except Exception as e:
+                    print(f"Error adding data to {token}: {e}")
             else:
                 print(f"File {token} is up to date")
         else:
-            df = coinbase_price_history(pair=token,
+            try:
+                df = coinbase_price_history(pair=token,
                                         start_date='2016-01-01T00:00:00Z',
                                         end_date=datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
                                         time_interval=interval)
-            save_file(df,folder_path,token,type)
+            except Exception as e:
+                print(f"Error first download for {token}: {e}")
+            if not df.empty:
+                save_file(df,folder_path,token,type)
 
 # %% ../nbs/coinbase.ipynb 10
 def coinbase_data_update(folder_path="../data/coinbase",token='AAVE-USD',type="parquet",
@@ -303,10 +308,7 @@ def coinbase_data_update(folder_path="../data/coinbase",token='AAVE-USD',type="p
             raise ValueError(f"Type {type} not supported")
         # read last date in the file
         last_date = pd.to_datetime(df['datetime'].iloc[-1]).tz_localize(dt.UTC)
-        if interval == 3600:
-            today = datetime.now(tz=dt.UTC).replace(minute=0,second=0,microsecond=0)
-        else:
-            today = datetime.now(tz=dt.UTC)
+        today = datetime.now(tz=dt.UTC)
         #print(last_date.tz_localize(dt.UTC),today)
         first_date = today - dt.timedelta(hours=24)
         if first_date < last_date and refresh_24h:
